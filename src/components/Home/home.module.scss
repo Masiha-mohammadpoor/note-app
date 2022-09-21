@@ -1,0 +1,56 @@
+@import "../../mixin";
+
+.header{
+    @include wh(100% , 60px , 0);
+    @include flex(space-between , center , row);
+    padding: 20px;
+    box-shadow: 0 2px 5px #ccc;
+
+    .logoContainer{
+        img{
+            width:60%;
+        }
+    }
+    
+    .title {
+        @include font(25px , 600 , comfortaa);
+        font-family: comfortaa;
+        margin-top: 5px;
+        span{
+            color: $mainC
+        }
+    }
+
+    .github {
+        color: $mainC;
+        font-size: 30px;
+    }
+}
+
+main {
+    font-family: comfortaa;
+    font-weight: 100;
+    .textsContainer{
+        height:40vh;
+        @include flex(space-between , flex-start , column);
+        .Button{
+            background-color: $mainC;
+            border: none;
+            @include wh(200px , 50px , 7px);
+            &:hover{
+                background-color: #5b3196;
+            }
+        }
+    }
+
+    .imgContainer{
+        div {
+            @include flex(flex-end , center , row);
+            background-image: url("../../assets/image/blobMain.svg");
+            background-repeat: no-repeat;
+            background-size: 65%;
+            background-position: 150px 38%;
+        }
+    }
+}
+

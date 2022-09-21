@@ -1,0 +1,24 @@
+@mixin wh($width , $height , $radius){
+    width:$width;
+    height:$height;
+    border-radius: $radius;
+    -webkit-border-radius: $radius;
+    -moz-border-radius: $radius;
+    -ms-border-radius: $radius;
+    -o-border-radius: $radius;
+}
+
+@mixin flex($justify , $align , $direction) {
+    display: flex;
+    justify-content: $justify;
+    align-items: $align;
+    flex-direction: $direction;
+}
+
+@mixin font($size , $weight , $family){
+    font-size: $size;
+    font-weight: $weight;
+    font-family: $family;
+}
+
+$mainC : #6a4c93;
