@@ -3,7 +3,9 @@
 
 .header {
     background-color: $mainC;
-    
+    z-index:10;
+
+
     .searchBox {
         border: 2px solid #fff;
         outline: none;

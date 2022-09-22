@@ -5,7 +5,7 @@ import {FaRegListAlt , FaPencilAlt} from "react-icons/fa";
 
 const Menu = () => {
     return (
-        <Col xs={2} className="bg-info">
+        <Col xs={2} className="float-start position-fixed">
             <nav className={`${styles.nav} d-flex justify-content-between align-items-start flex-column`}>
                 <div className={`${styles.logoContainer} p-4`}>
                     <img src={Logo} alt="logo" className="w-25" />

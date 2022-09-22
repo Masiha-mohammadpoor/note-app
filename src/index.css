@@ -6,6 +6,7 @@
 
 body{
     background-color: #f1f1f1;
+    overflow-x: hidden;
 }
 
 @font-face {
@@ -16,3 +17,16 @@ body{
 
 }
 
+
+.main{
+    z-index: -1;
+    position : relative;
+    height:fit-content;
+    top : 70px;
+    left : 16.7%;
+    overflow:hidden;
+}
+
+.main main {
+    width: 100%;
+}
