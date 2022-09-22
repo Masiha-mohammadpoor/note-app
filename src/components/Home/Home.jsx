@@ -6,6 +6,7 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
+import {Link} from "react-router-dom";
 
 const Home = () => {
     return (
@@ -21,9 +22,9 @@ const Home = () => {
                 <Container className="mt-3">
                     <Row className="d-flex justify-content-between align-items-center">
                         <Col xs={6} className={styles.textsContainer}>
-                            <h2 className="fw-bold">Write your notes here and save forever !!!</h2>
-                            <h5 className="text-secondary">Take a big step towards success by writing notes, ideas, and daily tasks</h5>
-                            <Button className={styles.Button}>Get Started</Button>
+                            <h2 className="fw-bold lh-base">Write your notes here and save forever !!!</h2>
+                            <h5 className="text-secondary lh-base">Take a big step towards success by writing notes, ideas, and daily tasks</h5>
+                            <Link to="/notes"><Button className={styles.Button}>Get Started</Button></Link>
                         </Col>
                         <Col xs={6} className={styles.imgContainer}>
                             <div>

@@ -2,6 +2,7 @@ import styles from "./menu.module.scss";
 import Col from "react-bootstrap/Col";
 import Logo from "../../assets/image/logo.png";
 import {FaRegListAlt , FaPencilAlt} from "react-icons/fa";
+import {Link} from "react-router-dom";
 
 const Menu = () => {
     return (
@@ -14,14 +15,14 @@ const Menu = () => {
 
                 <div className={`w-100 ${styles.list}`}>
                     <ul className=" d-flex justify-content-evenly align-items-start flex-column p-0 m-0">
-                        <li><a href="#"><span><FaRegListAlt/></span>all notes</a></li>
-                        <li><a href="#"><span><FaPencilAlt/></span>write notes</a></li>
-                        <li><a href="#"><span><FaRegListAlt/></span>all notes</a></li>
-                        <li><a href="#"><span><FaPencilAlt/></span>write notes</a></li>
-                        <li><a href="#"><span><FaRegListAlt/></span>all notes</a></li>
-                        <li><a href="#"><span><FaPencilAlt/></span>write notes</a></li>
-                        <li><a href="#"><span><FaRegListAlt/></span>all notes</a></li>
-                        <li><a href="#"><span><FaPencilAlt/></span>write notes</a></li>
+                        <li><Link to="/notes"><span><FaRegListAlt/></span>all notes</Link></li>
+                        <li><Link to="/write"><span><FaPencilAlt/></span>write</Link></li>
+                        <li><Link to="#"><span><FaRegListAlt/></span>all notes</Link></li>
+                        <li><Link to="#"><span><FaPencilAlt/></span>write notes</Link></li>
+                        <li><Link to="#"><span><FaRegListAlt/></span>all notes</Link></li>
+                        <li><Link to="#"><span><FaPencilAlt/></span>write notes</Link></li>
+                        <li><Link to="#"><span><FaRegListAlt/></span>all notes</Link></li>
+                        <li><Link to="#"><span><FaPencilAlt/></span>write notes</Link></li>
                     </ul>
                 </div>
 

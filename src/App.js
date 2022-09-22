@@ -1,15 +1,16 @@
 import Home from "./components/Home/Home";
-import Header from "./components/Header/Header";
-import Menu from "./components/Menu/Menu";
+import Write from "./components/Write/Write";
 import Layout from "./Layout/Layout";
 import {Routes , Route} from "react-router-dom";
 
 const App = () => {
     return ( 
         <>
-            <Routes>
-                <Route path="/" element={<Layout/>}/>
-            </Routes>
+        <Routes>
+        <Route path="/" element={<Home/>}/>
+        <Route path="/notes" element={<Layout></Layout>}/>
+        <Route path="/write" element={<Layout><Write/></Layout>}/>
+        </Routes>
         </>
     );
 }

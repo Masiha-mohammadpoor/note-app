@@ -1,0 +1,14 @@
+@import "../../mixin";
+
+.textarea {
+    width: 90%;
+}
+
+.inputLabel{
+    @include font(18px , 600 , comfortaa);
+}
+
+.input{
+    font-size : 20px;
+}
+

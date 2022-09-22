@@ -19,14 +19,13 @@ body{
 
 
 .main{
-    z-index: -1;
-    position : relative;
     height:fit-content;
-    top : 70px;
+    position:relative;
     left : 16.7%;
-    overflow:hidden;
+    overflow-x:hidden;
 }
 
 .main main {
     width: 100%;
 }
+
