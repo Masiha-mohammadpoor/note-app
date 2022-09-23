@@ -4,6 +4,8 @@ import styles from "./write.module.scss";
 import { useState } from "react";
 import swal from "sweetalert";
 import postData from "../../Services/postData";
+import { useNavigate } from 'react-router-dom';
+import Note from "../Note/Note";
 
 
 const Write = () => {
@@ -12,6 +14,8 @@ const Write = () => {
         title: "",
         text: ""
     });
+
+    const navigate = useNavigate();
 
     const addNote = async (value) => {
         try {
@@ -31,6 +35,7 @@ const Write = () => {
             swal("" , "please input something in fields" , "warning");
         }else{
             addNote(note);
+            navigate("/notes")
         }
     }
 
@@ -64,6 +69,7 @@ const Write = () => {
                     <Button styles={{ fontFamily: "comfortaa" }} variant='danger' className="writeBtn">Cancel</Button>
                 </div>
             </Form>
+            <Note/>
         </div>
     );
 }
