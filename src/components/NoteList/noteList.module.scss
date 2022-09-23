@@ -1,0 +1,5 @@
+.noteList {
+    display: grid;
+    grid-template-columns: repeat(3 , 25%);
+    justify-content: space-evenly;
+}

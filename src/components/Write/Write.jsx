@@ -5,7 +5,6 @@ import { useState } from "react";
 import swal from "sweetalert";
 import postData from "../../Services/postData";
 import { useNavigate } from 'react-router-dom';
-import Note from "../Note/Note";
 
 
 const Write = () => {
@@ -69,7 +68,6 @@ const Write = () => {
                     <Button styles={{ fontFamily: "comfortaa" }} variant='danger' className="writeBtn">Cancel</Button>
                 </div>
             </Form>
-            <Note/>
         </div>
     );
 }
