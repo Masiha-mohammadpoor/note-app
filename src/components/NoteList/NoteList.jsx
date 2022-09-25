@@ -3,7 +3,9 @@ import { useState, useEffect } from "react";
 import getAllData from "../../Services/getAllData";
 import Note from "../Note/Note";
 import { InfinitySpin } from 'react-loader-spinner'
-
+import nothingImg from "../../assets/image/nothingImg.svg";
+import Button from "react-bootstrap/Button";
+import {Link} from "react-router-dom";
 
 const NoteList = () => {
 
@@ -23,6 +25,16 @@ const NoteList = () => {
         getData();
     }, []);
 
+    const nothingNotes = () => {
+        return (    
+            <article className={`${styles.nothingContainer} d-flex justify-content-evenly align-items-center flex-column`}>
+                <img src={nothingImg} alt="nothing"/>
+                <h5>Nothing is available</h5>
+                <Link to="/write"><Button style={{backgroundColor:"#4c366b"}} className="border-0">add note ?</Button></Link>
+            </article>
+        );
+    }
+
     const renderNotes = () => {
         if (notes.length >= 1 ){
             return notes.map(n => {
@@ -32,7 +44,7 @@ const NoteList = () => {
                 text={n.text} /> 
             })
         }else if(notes.length === 0 && request !== ""){
-            return <p>nothing</p>
+            return nothingNotes()
         }else{
             return <div className={styles.loaderContainer}><InfinitySpin 
                 width='200'
