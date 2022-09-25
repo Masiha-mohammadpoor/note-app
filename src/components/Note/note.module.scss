@@ -18,6 +18,10 @@
     .likeBtn{
         font-size: 20px;
     }
+    .activeLikeBtn {
+        color:red;
+        font-size: 20px;
+    }
     &:hover {
         background-color: $mainC;
         color: #fff;

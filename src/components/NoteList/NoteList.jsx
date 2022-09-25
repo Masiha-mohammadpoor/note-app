@@ -6,6 +6,8 @@ import { InfinitySpin } from 'react-loader-spinner'
 import nothingImg from "../../assets/image/nothingImg.svg";
 import Button from "react-bootstrap/Button";
 import {Link} from "react-router-dom";
+import editData from "../../Services/editData";
+
 
 const NoteList = () => {
 
@@ -35,13 +37,27 @@ const NoteList = () => {
         );
     }
 
+    const likeHandler = async (noteData) => {
+        try{
+            const {title , text , like , id} = noteData;
+            await editData(id , {title , text , like : !like});
+            const {data} = await getAllData();
+            setNotes(data);
+        }catch(err){
+            console.log(err);
+        }
+    }   
+
     const renderNotes = () => {
         if (notes.length >= 1 ){
             return notes.map(n => {
                 return <Note
                 key={n.id}
+                id={n.id}
                 title={n.title}
-                text={n.text} /> 
+                text={n.text}
+                like={n.like}
+                onClick={() => likeHandler({...n})} /> 
             })
         }else if(notes.length === 0 && request !== ""){
             return nothingNotes()

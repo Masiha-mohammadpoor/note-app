@@ -33,7 +33,7 @@ const Write = () => {
         if(!note.title || !note.text) {
             swal("" , "please input something in fields" , "warning");
         }else{
-            addNote(note);
+            addNote({...note , like : false});
             navigate("/notes")
         }
     }
@@ -84,8 +84,8 @@ const Write = () => {
                         className={`${styles.textarea} mb-5`}></Form.Control>
 
 
-                    <Button styles={{ fontFamily: "comfortaa" }} className="mx-3" onClick={submitHandler}>Add note</Button>
-                    <Button styles={{ fontFamily: "comfortaa" }} variant='danger' onClick={cancelHandler} className="writeBtn">Cancel</Button>
+                    <Button className="mx-3" onClick={submitHandler}>Add note</Button>
+                    <Button variant='danger' onClick={cancelHandler} className="writeBtn">Cancel</Button>
                 </div>
             </Form>
         </div>

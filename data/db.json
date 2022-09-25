@@ -1,9 +1,22 @@
 {
   "notes": [
     {
-      "title": "we",
+      "title": "wfwe",
       "text": "ewfewf",
+      "like": true,
       "id": 1
+    },
+    {
+      "title": "efw",
+      "text": "ewf",
+      "like": true,
+      "id": 2
+    },
+    {
+      "title": "fb",
+      "text": "dfdbfdb",
+      "like": false,
+      "id": 3
     }
   ]
 }
