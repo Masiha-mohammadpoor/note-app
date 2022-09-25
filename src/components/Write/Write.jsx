@@ -38,6 +38,26 @@ const Write = () => {
         }
     }
 
+    const cancelHandler = () => {
+        swal({
+            title: "Are you sure?",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+          })
+          .then((willDelete) => {
+            if (willDelete) {
+                setNote({title : "" , text : ""});
+              swal("this note is delted", {
+                icon: "success",
+              });
+            } else {
+              return "";
+            }
+          });
+    }
+
+
     return (
         <div>
             <div></div>
@@ -65,7 +85,7 @@ const Write = () => {
 
 
                     <Button styles={{ fontFamily: "comfortaa" }} className="mx-3" onClick={submitHandler}>Add note</Button>
-                    <Button styles={{ fontFamily: "comfortaa" }} variant='danger' className="writeBtn">Cancel</Button>
+                    <Button styles={{ fontFamily: "comfortaa" }} variant='danger' onClick={cancelHandler} className="writeBtn">Cancel</Button>
                 </div>
             </Form>
         </div>
