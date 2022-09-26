@@ -1,12 +1,13 @@
 import styles from "./noteList.module.scss";
 import { useState, useEffect } from "react";
-import getAllData from "../../Services/getAllData";
 import Note from "../Note/Note";
 import { InfinitySpin } from 'react-loader-spinner'
 import nothingImg from "../../assets/image/nothingImg.svg";
 import Button from "react-bootstrap/Button";
 import {Link} from "react-router-dom";
+import getAllData from "../../Services/getAllData";
 import editData from "../../Services/editData";
+import deleteData from "../../Services/deleteData";
 
 
 const NoteList = () => {
@@ -48,6 +49,16 @@ const NoteList = () => {
         }
     }   
 
+    const deleteHandler = async (id) => {
+        try{
+            await deleteData(id);
+            const {data} = await getAllData();
+            setNotes(data);
+        }catch(err){
+            console.log(err)
+        }
+    }
+
     const renderNotes = () => {
         if (notes.length >= 1 ){
             return notes.map(n => {
@@ -57,7 +68,8 @@ const NoteList = () => {
                 title={n.title}
                 text={n.text}
                 like={n.like}
-                onClick={() => likeHandler({...n})} /> 
+                onLike={() => likeHandler({...n})}
+                onDelete={() => deleteHandler(n.id)} /> 
             })
         }else if(notes.length === 0 && request !== ""){
             return nothingNotes()

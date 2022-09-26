@@ -1,34 +1,3 @@
 {
-  "notes": [
-    {
-      "title": "wfwe",
-      "text": "ewfewf",
-      "like": false,
-      "id": 1
-    },
-    {
-      "title": "efw",
-      "text": "ewf",
-      "like": true,
-      "id": 2
-    },
-    {
-      "title": "fb",
-      "text": "dfdbfdb",
-      "like": true,
-      "id": 3
-    },
-    {
-      "title": "masiha",
-      "text": "masiha mohammadpour text",
-      "like": false,
-      "id": 4
-    },
-    {
-      "title": "masiha",
-      "text": "masiha@gmail.com\n",
-      "like": false,
-      "id": 5
-    }
-  ]
+  "notes": []
 }

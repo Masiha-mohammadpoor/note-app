@@ -1,12 +1,13 @@
 import styles from "./FavoriteList.module.scss";
 import { useState, useEffect } from "react";
-import getAllData from "../../Services/getAllData";
 import Note from "../Note/Note";
 import { InfinitySpin } from 'react-loader-spinner'
 import nothingImg from "../../assets/image/nothingImg.svg";
 import Button from "react-bootstrap/Button";
 import {Link} from "react-router-dom";
 import editData from "../../Services/editData";
+import getAllData from "../../Services/getAllData";
+import deleteData from "../../Services/deleteData";
 
 
 const FavoritesList = () => {
@@ -33,7 +34,7 @@ const FavoritesList = () => {
             <article className={`${styles.nothingContainer} d-flex justify-content-evenly align-items-center flex-column`}>
                 <img src={nothingImg} alt="nothing"/>
                 <h5>Nothing is available</h5>
-                <Link to="/write"><Button style={{backgroundColor:"#4c366b"}} className="border-0">add note ?</Button></Link>
+                <Link to="/notes"><Button style={{backgroundColor:"#4c366b"}} className="border-0">Go To Note List</Button></Link>
             </article>
         );
     }
@@ -50,6 +51,16 @@ const FavoritesList = () => {
         }
     }   
 
+    const deleteHandler = async (id) => {
+        try{
+            await deleteData(id);
+            const {data} = await getAllData();
+            setNotes(data);
+        }catch(err){
+            console.log(err)
+        }
+    }
+
     const renderNotes = () => {
         if (notes.length >= 1 ){
             return notes.map(n => {
@@ -59,7 +70,8 @@ const FavoritesList = () => {
                 title={n.title}
                 text={n.text}
                 like={n.like}
-                onClick={() => likeHandler({...n})} /> 
+                onLike={() => likeHandler({...n})}
+                onDelete={() => deleteHandler(n.id)} /> 
             })
         }else if(notes.length === 0 && request !== ""){
             return nothingNotes()
