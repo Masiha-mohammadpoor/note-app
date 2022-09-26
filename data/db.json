@@ -1,3 +1,21 @@
 {
-  "notes": []
+  "notes": [
+    {
+      "title": "masiha",
+      "text": "juniore developer",
+      "like": true,
+      "id": 1
+    },
+    {
+      "title": "pokk",
+      "text": "pottt",
+      "like": true,
+      "id": 2
+    },
+    {
+      "title": "titlezzzz",
+      "text": "textzzz",
+      "id": 3
+    }
+  ]
 }

@@ -1,27 +1,48 @@
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
-import styles from "./write.module.scss";
-import { useState } from "react";
+import styles from "./editNotes.module.scss";
+import { useState , useEffect} from "react";
 import swal from "sweetalert";
 import postData from "../../Services/postData";
-import { useNavigate } from 'react-router-dom';
+import editData from "../../Services/editData";
+import getOneData from "../../Services/getOneData";
+import { useNavigate , useParams} from 'react-router-dom';
 
 
-const Write = () => {
+const EditNotes = () => {
 
     const [note, setNote] = useState({
         title: "",
         text: ""
     });
 
+    const [like , setLike] = useState(false);
+
     const navigate = useNavigate();
 
-    const addNote = async (value) => {
+    const params = useParams();
+
+    useEffect(() => {
+        const getData = async () => {
+        try{
+            const {data} = await getOneData(+(params.id));
+            setLike(data.like);
+            setNote({title : data.title , text : data.text});
+        }catch(err){
+            console.log(err);
+        }
+    }
+    getData();
+    } , [])
+
+
+    const editNote = async (value) => {
         try {
-            await postData(value);
+            await editData(+(params.id) , {...note , like});
         }catch(err){
             console.log(err);
         }   
+        console.log(value)
     }
 
     const changeHandler = (e) => {
@@ -33,8 +54,8 @@ const Write = () => {
         if(!note.title || !note.text) {
             swal("" , "please input something in fields" , "warning");
         }else{
-            addNote({...note , like : false});
-            navigate("/notes")
+            editNote(note);
+            navigate(-1)
         }
     }
 
@@ -88,7 +109,7 @@ const Write = () => {
                         className={`${styles.textarea} mb-5`}></Form.Control>
 
 
-                    <Button className="mx-3" onClick={submitHandler}>Add note</Button>
+                    <Button className="mx-3" onClick={submitHandler}>Save changes</Button>
                     <Button variant='danger' onClick={cancelHandler} className="writeBtn">Cancel</Button>
                 </div>
             </Form>
@@ -96,4 +117,4 @@ const Write = () => {
     );
 }
 
-export default Write;
+export default EditNotes;
