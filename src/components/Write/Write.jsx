@@ -39,6 +39,7 @@ const Write = () => {
     }
 
     const cancelHandler = () => {
+        if(note.title || note.text){
         swal({
             title: "Are you sure?",
             icon: "warning",
@@ -55,6 +56,9 @@ const Write = () => {
               return "";
             }
           });
+        }else {
+            return "";
+        }
     }
 
 

@@ -1,7 +1,7 @@
 import styles from "./menu.module.scss";
 import Col from "react-bootstrap/Col";
 import Logo from "../../assets/image/logo.png";
-import {FaRegListAlt , FaPencilAlt , FaHome} from "react-icons/fa";
+import {FaRegListAlt , FaPencilAlt , FaHome , FaRegHeart} from "react-icons/fa";
 import {Link} from "react-router-dom";
 
 const Menu = () => {
@@ -16,9 +16,9 @@ const Menu = () => {
                 <div className={`w-100 ${styles.list}`}>
                     <ul className=" d-flex justify-content-evenly align-items-start flex-column p-0 m-0">
                         <li><Link to="/"><span><FaHome/></span>Home</Link></li>
-                        <li><Link to="/notes"><span><FaRegListAlt/></span>all notes</Link></li>
-                        <li><Link to="/write"><span><FaPencilAlt/></span>write</Link></li>
-                        <li><Link to="#"><span><FaPencilAlt/></span>write notes</Link></li>
+                        <li><Link to="/notes"><span><FaRegListAlt/></span>All notes</Link></li>
+                        <li><Link to="/write"><span><FaPencilAlt/></span>Write</Link></li>
+                        <li><Link to="/favorites"><span><FaRegHeart/></span>Favorites</Link></li>
                         <li><Link to="#"><span><FaRegListAlt/></span>all notes</Link></li>
                         <li><Link to="#"><span><FaPencilAlt/></span>write notes</Link></li>
                         <li><Link to="#"><span><FaRegListAlt/></span>all notes</Link></li>
