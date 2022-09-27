@@ -33,7 +33,7 @@ const FavoritesList = () => {
         return (    
             <article className={`${styles.nothingContainer} d-flex justify-content-evenly align-items-center flex-column`}>
                 <img src={nothingImg} alt="nothing"/>
-                <h5>Nothing is available</h5>
+                <h5 className="text-secondary">Nothing is available</h5>
                 <Link to="/notes"><Button style={{backgroundColor:"#4c366b"}} className="border-0">Go To Note List</Button></Link>
             </article>
         );
