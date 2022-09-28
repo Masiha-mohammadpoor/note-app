@@ -40,8 +40,8 @@ const NoteList = () => {
 
     const likeHandler = async (noteData) => {
         try{
-            const {title , text , like , id} = noteData;
-            await editData(id , {title , text , like : !like});
+            const {title , text , type , like , id} = noteData;
+            await editData(id , {title , text , type , like : !like});
             const {data} = await getAllData();
             setNotes(data);
         }catch(err){
