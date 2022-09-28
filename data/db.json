@@ -1,17 +1,17 @@
 {
   "notes": [
     {
-      "title": "masihaa",
-      "text": "masiha mohammadpour",
+      "title": "maryam",
+      "text": "eqd",
       "type": "public",
-      "like": true,
+      "like": false,
       "id": 1
     },
     {
-      "title": "lwe",
-      "text": "ewfewg",
+      "title": "mehran",
+      "text": "success",
       "type": "private",
-      "like": false,
+      "like": true,
       "id": 2
     }
   ]
