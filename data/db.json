@@ -1,10 +1,18 @@
 {
   "notes": [
     {
-      "title": "masiha",
+      "title": "rgwgw",
+      "text": "errwrg",
+      "type": "public",
+      "like": false,
+      "id": 2
+    },
+    {
+      "title": "m",
       "text": "masiha@gmail.com",
-      "like": true,
-      "id": 1
+      "type": "private",
+      "like": false,
+      "id": 3
     }
   ]
 }

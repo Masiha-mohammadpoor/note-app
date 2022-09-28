@@ -5,13 +5,14 @@ import { useState } from "react";
 import swal from "sweetalert";
 import postData from "../../Services/postData";
 import { useNavigate } from 'react-router-dom';
-
+import {FaLock , FaLockOpen} from "react-icons/fa";;
 
 const Write = () => {
 
     const [note, setNote] = useState({
         title: "",
-        text: ""
+        text: "",
+        type : "public",
     });
 
     const navigate = useNavigate();
@@ -19,9 +20,9 @@ const Write = () => {
     const addNote = async (value) => {
         try {
             await postData(value);
-        }catch(err){
+        } catch (err) {
             console.log(err);
-        }   
+        }
     }
 
     const changeHandler = (e) => {
@@ -30,33 +31,33 @@ const Write = () => {
     }
 
     const submitHandler = () => {
-        if(!note.title || !note.text) {
-            swal("" , "please input something in fields" , "warning");
-        }else{
-            addNote({...note , like : false});
+        if (!note.title || !note.text) {
+            swal("", "please input something in fields", "warning");
+        } else {
+            addNote({ ...note, like: false });
             navigate("/notes")
         }
     }
 
     const cancelHandler = () => {
-        if(note.title || note.text){
-        swal({
-            title: "Are you sure?",
-            icon: "warning",
-            buttons: true,
-            dangerMode: true,
-          })
-          .then((willDelete) => {
-            if (willDelete) {
-                setNote({title : "" , text : ""});
-              swal("this note is deleted", {
-                icon: "success",
-              });
-            } else {
-              return "";
-            }
-          });
-        }else {
+        if (note.title || note.text) {
+            swal({
+                title: "Are you sure?",
+                icon: "warning",
+                buttons: true,
+                dangerMode: true,
+            })
+                .then((willDelete) => {
+                    if (willDelete) {
+                        setNote({ title: "", text: "" });
+                        swal("this note is deleted", {
+                            icon: "success",
+                        });
+                    } else {
+                        return "";
+                    }
+                });
+        } else {
             return "";
         }
     }
@@ -87,9 +88,33 @@ const Write = () => {
                         as="textarea" rows={10}
                         className={`${styles.textarea} mb-5`}></Form.Control>
 
+                    <div className="pb-4">
+                        <div className="d-flex align-items-center mb-2">
+                        <Form.Check
+                            type="radio"
+                            label={`public note`}
+                            name="type"
+                            value="public"
+                            checked={note.type === "public"}
+                            onChange={changeHandler}
+                        />
+                        <span className="mx-2"><FaLockOpen/></span>
+                        </div>
+                        <div className="d-flex align-items-center">
+                        <Form.Check
+                            type="radio"
+                            label={`private note`}
+                            name="type"
+                            value="private"
+                            checked={note.type === "private"}
+                            onChange={changeHandler}
+                        />
+                        <span className="mx-2"><FaLock/></span>
+                        </div>
+                    </div>
 
-                    <Button className="mx-3" onClick={submitHandler}>Add note</Button>
-                    <Button variant='danger' onClick={cancelHandler} className="writeBtn">Cancel</Button>
+                    <Button className="w" onClick={submitHandler}>Add note</Button>
+                    <Button variant='danger' onClick={cancelHandler} className="writeBtn mx-3">Cancel</Button>
                 </div>
             </Form>
         </div>

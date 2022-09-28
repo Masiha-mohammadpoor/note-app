@@ -1,13 +1,17 @@
 import styles from "./note.module.scss";
 import {FaRegHeart , FaHeart , FaEllipsisV , FaTrashAlt, FaEdit , FaEye} from "react-icons/fa";
 import {Link} from "react-router-dom";
+import {FaLock , FaLockOpen} from "react-icons/fa";;
 
 
-const Note = ({id , title , text , like , onLike , onDelete}) => {
+const Note = ({id , title , text , type , like , onLike , onDelete}) => {
 
     return (
         <article className={` ${styles.Note} p-3 mb-4 d-flex justify-content-between align-items-start flex-column`}>
-            <h4>{title}</h4>
+            <div className="w-100 d-flex justify-content-between align-items-center">
+                <h4>{title}</h4>
+                <h5>{type === "public" ? <FaLockOpen/> : <FaLock/>}</h5>
+            </div>
             <p>{text.slice(0 , 20) + "..."}</p>
             <div className="w-100 d-flex justify-content-between align-items-center">
                 <span className="w-50 d-flex justify-content-between align-items-center">

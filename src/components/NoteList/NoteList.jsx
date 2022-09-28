@@ -67,6 +67,7 @@ const NoteList = () => {
                 id={n.id}
                 title={n.title}
                 text={n.text}
+                type={n.type}
                 like={n.like}
                 onLike={() => likeHandler({...n})}
                 onDelete={() => deleteHandler(n.id)} /> 

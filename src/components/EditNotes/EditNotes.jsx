@@ -13,7 +13,8 @@ const EditNotes = () => {
 
     const [note, setNote] = useState({
         title: "",
-        text: ""
+        text: "",
+        type : ""
     });
 
     const [like , setLike] = useState(false);
@@ -27,7 +28,7 @@ const EditNotes = () => {
         try{
             const {data} = await getOneData(+(params.id));
             setLike(data.like);
-            setNote({title : data.title , text : data.text});
+            setNote({title : data.title , text : data.text , type : data.type});
         }catch(err){
             console.log(err);
         }
