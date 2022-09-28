@@ -1,18 +1,18 @@
 {
   "notes": [
     {
-      "title": "maryam",
-      "text": "eqd",
-      "type": "public",
+      "title": "masiha2",
+      "text": "masiha2",
+      "type": "private",
       "like": false,
-      "id": 1
+      "id": 2
     },
     {
-      "title": "mehran",
-      "text": "success",
-      "type": "private",
+      "title": "masiha3",
+      "text": "dfg",
+      "type": "public",
       "like": true,
-      "id": 2
+      "id": 5
     }
   ]
 }

@@ -41,8 +41,8 @@ const FavoritesList = () => {
 
     const likeHandler = async (noteData) => {
         try{
-            const {title , text , like , id} = noteData;
-            await editData(id , {title , text , like : !like});
+            const {title , text , type , like , id} = noteData;
+            await editData(id , {title , text , type , like : !like});
             const {data} = await getAllData();
             const filtered = await data.filter(n => n.like);
             setNotes(filtered);
@@ -53,9 +53,9 @@ const FavoritesList = () => {
 
     const deleteHandler = async (id) => {
         try{
+            const filtered = notes.filter(n => n.id !== id);
+            setNotes(filtered);
             await deleteData(id);
-            const {data} = await getAllData();
-            setNotes(data);
         }catch(err){
             console.log(err)
         }
@@ -69,6 +69,7 @@ const FavoritesList = () => {
                 id={n.id}
                 title={n.title}
                 text={n.text}
+                type={n.type}
                 like={n.like}
                 onLike={() => likeHandler({...n})}
                 onDelete={() => deleteHandler(n.id)} /> 
