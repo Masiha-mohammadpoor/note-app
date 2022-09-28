@@ -8,7 +8,7 @@ import {Link} from "react-router-dom";
 import getAllData from "../../Services/getAllData";
 import editData from "../../Services/editData";
 import deleteData from "../../Services/deleteData";
-
+import {FaPlus} from "react-icons/fa";
 
 const NoteList = () => {
 
@@ -83,12 +83,12 @@ const NoteList = () => {
 
 
     return (
+        <>
         <section className={` ${notes.length >= 1 ?styles.noteList : styles.loaderContainer} w-100 p-3 mt-2`}>
-            {renderNotes() || <div className={styles.loaderContainer}><InfinitySpin 
-            width='200'
-            color="#8562b5"
-          /></div>}
+            {renderNotes()}
         </section>
+        <Link to="/write"><button className={styles.addBtn}><FaPlus/></button></Link>
+        </>
     );
 }
 
