@@ -1,25 +1,46 @@
 {
   "notes": [
     {
-      "title": "masiha12",
-      "text": "masiha@gmail.com",
-      "type": "private",
-      "like": true,
-      "id": 1
-    },
-    {
-      "title": "masiha23",
-      "text": "masiha32",
+      "title": "masiha3",
+      "text": "masiha3",
       "type": "private",
       "like": false,
-      "id": 2
+      "id": 4
+    },
+    {
+      "title": "masiha2",
+      "text": "masiha2",
+      "type": "public",
+      "like": true,
+      "id": 6
+    },
+    {
+      "title": "masiha1",
+      "text": "masiha1",
+      "type": "public",
+      "like": false,
+      "id": 7
     },
     {
       "title": "masiha4",
-      "text": "masiha3",
+      "text": "masiha4",
+      "type": "private",
+      "like": false,
+      "id": 8
+    },
+    {
+      "title": "masiha6",
+      "text": "masiha6",
       "type": "public",
-      "like": true,
-      "id": 3
+      "like": false,
+      "id": 9
+    },
+    {
+      "title": "masiha7",
+      "text": "masiha7",
+      "type": "private",
+      "like": false,
+      "id": 10
     }
   ]
 }

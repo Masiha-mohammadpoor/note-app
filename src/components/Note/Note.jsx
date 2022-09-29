@@ -19,9 +19,9 @@ const Note = ({id , title , text , type , like , onLike , onDelete}) => {
                     <Link to={`/edit/${id}`}><button className="border-0 bg-transparent fs-5 text-primary"><FaEdit/></button></Link>
                     <Link to={`/note/${id}`}><button className={`${styles.seeNote} border-0 bg-transparent fs-5`}><FaEye/></button></Link>                    
                 </span>
-                <button className={`${like ? styles.activeLikeBtn : styles.likeBtn } border-0 bg-transparent`} onClick={onLike}>
+                {type === "public" ? <button className={`${like ? styles.activeLikeBtn : styles.likeBtn } border-0 bg-transparent`} onClick={onLike}>
                     {like ? <FaHeart/> : <FaRegHeart/>}
-                </button>
+                </button> : <span></span>}
             </div>
         </article>
     );

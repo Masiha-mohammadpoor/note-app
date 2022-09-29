@@ -35,7 +35,7 @@ const Write = () => {
             swal("", "please input something in fields", "warning");
         } else {
             addNote({ ...note, like: false });
-            navigate("/notes")
+            navigate(note.type === "public" ? "/notes" : "/private");
         }
     }
 

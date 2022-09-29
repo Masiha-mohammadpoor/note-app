@@ -19,7 +19,8 @@ const NoteList = () => {
         const getData = async () => {
             try {
                 const { data , statusText} = await getAllData();
-                setNotes(data);
+                const filtered = await data.filter(n => n.type === "public");
+                setNotes(filtered);
                 setRequest(statusText);
             } catch (err) {
                 console.log(err)
@@ -43,7 +44,8 @@ const NoteList = () => {
             const {title , text , type , like , id} = noteData;
             await editData(id , {title , text , type , like : !like});
             const {data} = await getAllData();
-            setNotes(data);
+            const filtered = await data.filter(n => n.type === "public");
+            setNotes(filtered);
         }catch(err){
             console.log(err);
         }
@@ -53,7 +55,8 @@ const NoteList = () => {
         try{
             await deleteData(id);
             const {data} = await getAllData();
-            setNotes(data);
+            const filtered = await data.filter(n => n.type === "public");
+            setNotes(filtered);
         }catch(err){
             console.log(err)
         }
