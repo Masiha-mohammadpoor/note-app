@@ -1,18 +1,25 @@
 {
   "notes": [
     {
-      "title": "masiha2",
-      "text": "masiha2",
+      "title": "masiha12",
+      "text": "masiha@gmail.com",
+      "type": "private",
+      "like": true,
+      "id": 1
+    },
+    {
+      "title": "masiha23",
+      "text": "masiha32",
       "type": "private",
       "like": false,
       "id": 2
     },
     {
-      "title": "masiha3",
-      "text": "dfg",
+      "title": "masiha4",
+      "text": "masiha3",
       "type": "public",
       "like": true,
-      "id": 5
+      "id": 3
     }
   ]
 }

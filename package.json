@@ -45,6 +45,7 @@
     "react-loader-spinner": "^5.3.4",
     "react-router-dom": "^6.4.0",
     "sass": "^1.54.9",
+    "string-encode-decode": "^1.0.7",
     "sweetalert": "^2.1.2"
   }
 }

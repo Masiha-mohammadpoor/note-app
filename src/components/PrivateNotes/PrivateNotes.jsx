@@ -10,7 +10,7 @@ import {useState , useEffect} from "react";
 import getAllData from "../../Services/getAllData";
 import editData from "../../Services/editData";
 import deleteData from "../../Services/deleteData";
-
+import {encode, decode} from 'string-encode-decode';
 
 const PrivateNotes = () => {
 
@@ -42,11 +42,11 @@ const PrivateNotes = () => {
 
     const submitHandler = () => {
         if(pass === null  && password !== ""){
-            localStorage.setItem("password" , JSON.stringify(password));
+            localStorage.setItem("password" , JSON.stringify(encode(password)));
             setPassword("");
             swal("Done !!!" , "New password saved" , "success");
         }else{
-            if(password === pass){
+            if(password === decode(pass)){
                 setLock(true);
                 setPassword("");
             }else{

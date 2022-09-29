@@ -7,6 +7,7 @@ import postData from "../../Services/postData";
 import editData from "../../Services/editData";
 import getOneData from "../../Services/getOneData";
 import { useNavigate , useParams} from 'react-router-dom';
+import {FaLock , FaLockOpen} from "react-icons/fa";;
 
 
 const EditNotes = () => {
@@ -14,7 +15,7 @@ const EditNotes = () => {
     const [note, setNote] = useState({
         title: "",
         text: "",
-        type : ""
+        type : "public"
     });
 
     const [like , setLike] = useState(false);
@@ -109,9 +110,34 @@ const EditNotes = () => {
                         as="textarea" rows={10}
                         className={`${styles.textarea} mb-5`}></Form.Control>
 
+                        <div className="pb-4">
+                        <div className="d-flex align-items-center mb-2">
+                        <Form.Check
+                            type="radio"
+                            label={`public note`}
+                            name="type"
+                            value="public"
+                            checked={note.type === "public"}
+                            onChange={changeHandler}
+                        />
+                        <span className="mx-2"><FaLockOpen/></span>
+                        </div>
+                        <div className="d-flex align-items-center">
+                        <Form.Check
+                            type="radio"
+                            label={`private note`}
+                            name="type"
+                            value="private"
+                            checked={note.type === "private"}
+                            onChange={changeHandler}
+                        />
+                        <span className="mx-2"><FaLock/></span>
+                        </div>
+                    </div>
 
-                    <Button className="mx-3" onClick={submitHandler}>Save changes</Button>
-                    <Button variant='danger' onClick={cancelHandler} className="writeBtn">Cancel</Button>
+
+                    <Button onClick={submitHandler}>Save changes</Button>
+                    <Button variant='danger' onClick={cancelHandler} className="writeBtn mx-3">Cancel</Button>
                 </div>
             </Form>
         </div>
