@@ -17,8 +17,10 @@ const PrivateNotes = () => {
     const [notes , setNotes] = useState([]);
     const [request , setRequest] = useState("");
     const [password , setPassword] = useState("");
-    const [lock , setLock] = useState(false);
+    const [lock , setLock] = useState("");
+    const [question , setQuestion] = useState({question : "" , answer : ""});
     const pass = JSON.parse(localStorage.getItem("password"));
+    const forgetQuestion = JSON.parse(localStorage.getItem("question"));
 
     useEffect(() => {
         const getData = async () => {
@@ -47,7 +49,7 @@ const PrivateNotes = () => {
             swal("Done !!!" , "New password saved" , "success");
         }else{
             if(password === decode(pass)){
-                setLock(true);
+                setLock(!forgetQuestion ? "question" : "list");
                 setPassword("");
             }else{
                 swal("Ooops !!!" , "The password is incorrect" , "error");
@@ -96,7 +98,6 @@ const PrivateNotes = () => {
         }
     }
 
-
     const likeHandler = async (noteData) => {
         try{
             const {title , text , type , like , id} = noteData;
@@ -111,6 +112,41 @@ const PrivateNotes = () => {
             console.log(err);
         }
     }   
+
+    const questionChangeHandler = (e) => {
+        setQuestion({...question, [e.target.name] : e.target.value});
+    }
+
+    const saveQuestion = () => {
+        setLock("list");
+        localStorage.setItem("question" , JSON.stringify(encode(JSON.stringify(question))));
+    }
+
+
+    const setForgetQuestion = () => {
+        return (
+            <article className="m-5 w-100 d-flex justify-content-between align-items-center flex-column">
+                <p style={{fontFamily : "comfortaa"}} className="fs-5 w-50 text-center pb-3">Please save a favorite question and answer and remember it to use it to change the password if you forget the password<span className="text-danger mx-1">!!!</span></p>
+                <input 
+                type="text" 
+                placeholder="question ..." 
+                className={styles.question} 
+                autoFocus
+                name="question"
+                value={question.question}
+                onChange={questionChangeHandler}/>
+                <input 
+                type="text" 
+                placeholder="answer..." 
+                className={styles.question}
+                name="answer" 
+                value={question.answer}
+                onChange={questionChangeHandler}
+                />
+                <Button onClick={saveQuestion} className="w-25 fs-6 border-0" style={{fontFamily : "comfortaa" , backgroundColor:"#4c366b"}}>save</Button>
+            </article>
+        )
+    }
 
 
     const renderNotes = () => {
@@ -136,10 +172,22 @@ const PrivateNotes = () => {
         }
     }
 
+    const render = () => {
+        if(lock === "question"){
+            return setForgetQuestion();
+        }else if(lock === "list"){
+            return renderNotes()
+        }else {
+            return lockComponent();
+        }
+    }
+
 
     return ( 
         <>
-            <section className={`${lock && notes.length >= 1 ? styles.noteList : styles.loaderContainer} mt-4 mb-5`}>{lock ? renderNotes() : lockComponent()}</section>
+            <section className={`${lock === "list" && notes.length >= 1 ? styles.noteList : styles.loaderContainer} mt-4 mb-5`}>
+                {render()}
+            </section>
         </>
      );
 }

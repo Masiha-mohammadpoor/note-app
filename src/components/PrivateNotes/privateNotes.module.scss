@@ -17,6 +17,20 @@
     letter-spacing : 11px;
 }
 
+.question {
+    border:3px solid #ccc;
+    outline:none;
+    width:50%;
+    height:50px;
+    padding-left:10px;
+    padding-right:10px;
+    border-radius:30px;
+    font-size : 18px;
+    font-family : comfortaa;
+    margin-bottom : 20px;
+}
+
+
 .noteList {
     display: grid;
     grid-template-columns: repeat(3 , 25%);
