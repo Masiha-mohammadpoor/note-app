@@ -16,7 +16,7 @@ const ShowNote = () => {
     useEffect(() => {
         const getData = async () => {
             try{
-                const {data} = await getOneData(+(params.id));
+                const {data} = await getOneData(params.id);
                 setNote({title : data.title , text : data.text});
             }catch(err){
                 console.log(err)

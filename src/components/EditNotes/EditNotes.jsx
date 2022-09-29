@@ -27,7 +27,7 @@ const EditNotes = () => {
     useEffect(() => {
         const getData = async () => {
         try{
-            const {data} = await getOneData(+(params.id));
+            const {data} = await getOneData(params.id);
             setLike(data.like);
             setNote({title : data.title , text : data.text , type : data.type});
         }catch(err){
@@ -40,11 +40,10 @@ const EditNotes = () => {
 
     const editNote = async (value) => {
         try {
-            await editData(+(params.id) , {...note , like});
+            await editData(params.id , {...note , like});
         }catch(err){
             console.log(err);
         }   
-        console.log(value)
     }
 
     const changeHandler = (e) => {

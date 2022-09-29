@@ -1,46 +1,18 @@
 {
   "notes": [
     {
-      "title": "masiha3",
-      "text": "masiha3",
-      "type": "private",
-      "like": false,
-      "id": 4
-    },
-    {
       "title": "masiha2",
       "text": "masiha2",
       "type": "public",
       "like": true,
-      "id": 6
-    },
-    {
-      "title": "masiha1",
-      "text": "masiha1",
-      "type": "public",
-      "like": false,
-      "id": 7
+      "id": 2
     },
     {
       "title": "masiha4",
       "text": "masiha4",
-      "type": "private",
-      "like": false,
-      "id": 8
-    },
-    {
-      "title": "masiha6",
-      "text": "masiha6",
       "type": "public",
       "like": false,
-      "id": 9
-    },
-    {
-      "title": "masiha7",
-      "text": "masiha7",
-      "type": "private",
-      "like": false,
-      "id": 10
+      "id": 3
     }
   ]
 }

@@ -34,7 +34,12 @@ const Write = () => {
         if (!note.title || !note.text) {
             swal("", "please input something in fields", "warning");
         } else {
-            addNote({ ...note, like: false });
+            if(note.type === "public"){
+                addNote({ ...note, like: false});
+            }
+            else {
+                addNote({ ...note, like: false , id : `private${new Date().getTime()}`});
+            };
             navigate(note.type === "public" ? "/notes" : "/private");
         }
     }
