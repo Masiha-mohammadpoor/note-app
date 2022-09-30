@@ -30,7 +30,7 @@ const ShowNote = () => {
         <section className={`${styles.noteContainer} m-5`}>
             <h2 className={`${styles.title} fw-bold`}>{note.title}</h2>
             <small className="text-muted d-inline-block pb-4">05/07/1401</small>
-            <p className={styles.text}>{note.text}</p>
+            <pre className={styles.text}>{note.text}</pre>
         </section>
     );
 }
