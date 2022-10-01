@@ -69,6 +69,7 @@ const PrivateNotes = () => {
         } else {
             if (answer === answer2) {
                 localStorage.removeItem("password");
+                localStorage.removeItem("question");
                 setLock("");
             } else {
                 swal("Ooops !!!", "The answer is incorrect", "error");
@@ -164,7 +165,6 @@ const PrivateNotes = () => {
         }
     }
 
-
     const setForgetQuestion = () => {
         return (
             <article className="m-5 w-100 d-flex justify-content-between align-items-center flex-column">
@@ -190,7 +190,6 @@ const PrivateNotes = () => {
             </article>
         )
     }
-
 
     const renderNotes = () => {
         if (notes.length >= 1) {
@@ -226,7 +225,6 @@ const PrivateNotes = () => {
             return lockComponent();
         }
     }
-
 
     return (
         <>
