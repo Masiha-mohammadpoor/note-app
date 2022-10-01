@@ -1,7 +1,7 @@
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import styles from "./editNotes.module.scss";
-import { useState , useEffect} from "react";
+import { useState , useEffect , useRef} from "react";
 import swal from "sweetalert";
 import postData from "../../Services/postData";
 import editData from "../../Services/editData";
@@ -21,7 +21,7 @@ const EditNotes = () => {
     const [like , setLike] = useState(false);
 
     const navigate = useNavigate();
-
+    const textArea = useRef();
     const params = useParams();
 
     useEffect(() => {
@@ -35,7 +35,14 @@ const EditNotes = () => {
         }
     }
     getData();
-    } , [])
+    } , []);
+
+    useEffect(() => {
+        const tag = textArea.current;
+
+        tag.style.height = tag.scrollHeight + "px";
+    } , [note.text])
+
 
 
     const editNote = async (value) => {
@@ -105,8 +112,9 @@ const EditNotes = () => {
                         placeholder="Text..."
                         name="text"
                         value={note.text}
+                        ref={textArea}
                         onChange={changeHandler}
-                        as="textarea" rows={10}
+                        as="textarea" rows={7}
                         className={`${styles.textarea} mb-5`}></Form.Control>
 
                         <div className="pb-4">

@@ -1,8 +1,9 @@
 import styles from "./showNote.module.scss";
 import {useParams} from "react-router-dom";
-import { useEffect , useState} from "react";
+import { useEffect , useState } from "react";
 import getOneData from "../../Services/getOneData";
 import {FaSearchPlus , FaSearchMinus, FaBold , FaItalic , FaRegClone} from "react-icons/fa";
+import swal from "sweetalert";
 
 const ShowNote = () => {
 
@@ -37,6 +38,11 @@ const ShowNote = () => {
         fontStyle : style.fontStyle
     }
 
+    const copyHandler = () => {
+        navigator.clipboard.writeText(`${note.title} \n ${note.text}`);
+        swal("copied text" , "" , "success");
+    }
+
     return (  
         <section className={`${styles.noteContainer} m-5`}>
             <div className="w-25 mb-4 d-flex justify-content-between align-items-center">
@@ -44,7 +50,7 @@ const ShowNote = () => {
                 <button onClick={() => setStyle({...style , fontSize : style.fontSize > 10 ? style.fontSize - 1 : style.fontSize})}><FaSearchMinus/></button>
                 <button onClick={() => setStyle({...style , fontWeight : style.fontWeight === "" ? "bold" : ""})}><FaBold/></button>
                 <button onClick={() => setStyle({...style , fontStyle : style.fontStyle === "" ? "italic" : ""})}><FaItalic/></button>
-                <button><FaRegClone/></button>
+                <button onClick={copyHandler}><FaRegClone/></button>
             </div>
             <h2 className={`${styles.title} fw-bold`}>{note.title}</h2>
             <small className="text-muted d-inline-block pb-4">05/07/1401</small>

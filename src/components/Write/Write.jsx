@@ -1,7 +1,7 @@
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import styles from "./write.module.scss";
-import { useState } from "react";
+import { useState , useRef , useEffect} from "react";
 import swal from "sweetalert";
 import postData from "../../Services/postData";
 import { useNavigate } from 'react-router-dom';
@@ -16,6 +16,15 @@ const Write = () => {
     });
 
     const navigate = useNavigate();
+
+    const textArea = useRef();
+
+    useEffect(() => {
+        const tag = textArea.current;
+
+        tag.style.height = tag.scrollHeight + "px";
+
+    } , [note.text])
 
     const addNote = async (value) => {
         try {
@@ -89,8 +98,9 @@ const Write = () => {
                         placeholder="Text..."
                         name="text"
                         value={note.text}
+                        ref={textArea}
                         onChange={changeHandler}
-                        as="textarea" rows={10}
+                        as="textarea" rows={7}
                         className={`${styles.textarea} mb-5`}></Form.Control>
 
                     <div className="pb-4">
