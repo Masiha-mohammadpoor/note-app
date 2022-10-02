@@ -1,33 +1,13 @@
 import styles from "./noteList.module.scss";
-import { useState, useEffect } from "react";
 import Note from "../Note/Note";
 import { InfinitySpin } from 'react-loader-spinner'
 import nothingImg from "../../assets/image/nothingImg.svg";
 import Button from "react-bootstrap/Button";
 import {Link} from "react-router-dom";
-import getAllData from "../../Services/getAllData";
-import editData from "../../Services/editData";
-import deleteData from "../../Services/deleteData";
 import {FaPlus} from "react-icons/fa";
 
-const NoteList = () => {
 
-    const [notes, setNotes] = useState([]);
-    const [request , setRequest] = useState("");
-
-    useEffect(() => {
-        const getData = async () => {
-            try {
-                const { data , statusText} = await getAllData();
-                const filtered = await data.filter(n => n.type === "public");
-                setNotes(filtered);
-                setRequest(statusText);
-            } catch (err) {
-                console.log(err)
-            }
-        }
-        getData();
-    }, []);
+const NoteList = ({notes , request , likeHandler , deleteHandler}) => {
 
     const nothingNotes = () => {
         return (    
@@ -37,30 +17,9 @@ const NoteList = () => {
                 <Link to="/write"><Button style={{backgroundColor:"#4c366b"}} className="border-0">add note ?</Button></Link>
             </article>
         );
-    }
+    };
 
-    const likeHandler = async (noteData) => {
-        try{
-            const {title , text , type , like , id} = noteData;
-            await editData(id , {title , text , type , like : !like});
-            const {data} = await getAllData();
-            const filtered = await data.filter(n => n.type === "public");
-            setNotes(filtered);
-        }catch(err){
-            console.log(err);
-        }
-    }   
 
-    const deleteHandler = async (id) => {
-        try{
-            await deleteData(id);
-            const {data} = await getAllData();
-            const filtered = await data.filter(n => n.type === "public");
-            setNotes(filtered);
-        }catch(err){
-            console.log(err)
-        }
-    }
 
     const renderNotes = () => {
         if (notes.length >= 1 ){
@@ -75,7 +34,7 @@ const NoteList = () => {
                 onLike={() => likeHandler({...n})}
                 onDelete={() => deleteHandler(n.id)} /> 
             })
-        }else if(notes.length === 0 && request !== ""){
+        }else if(notes.length === 0 && request){
             return nothingNotes()
         }else{
             return <div className={styles.loaderContainer}><InfinitySpin 
@@ -97,4 +56,3 @@ const NoteList = () => {
 }
 
 export default NoteList;
-
