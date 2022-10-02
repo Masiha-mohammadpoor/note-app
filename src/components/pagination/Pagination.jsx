@@ -4,6 +4,8 @@ import ReactPaginate from "react-paginate";
 import getAllData from "../../Services/getAllData";
 import editData from "../../Services/editData";
 import deleteData from "../../Services/deleteData";
+import styles from "./pagination.module.scss";
+
 
 const Pagination = () => {
 
@@ -76,12 +78,20 @@ const Pagination = () => {
         <NoteList notes={currentItems} request={request} likeHandler={likeHandler} deleteHandler={deleteHandler}/>
         <ReactPaginate
         breakLabel="..."
-        nextLabel="next >"
+        nextLabel=">"
         onPageChange={handlePageClick}
         pageRangeDisplayed={3}
         pageCount={pageCount}
-        previousLabel="< previous"
+        previousLabel="<"
         renderOnZeroPageCount={null}
+        containerClassName={styles.pagContainer}
+        pageClassName={styles.pagPage}
+        pageLinkClassName={styles.pageLink}
+        activeClassName={styles.activePage}
+        previousClassName={styles.nextAndPrevious}
+        nextClassName={styles.nextAndPrevious}
+        previousLinkClassName={styles.previousAndNextLink}
+        nextLinkClassName={styles.previousAndNextLink}
       />
         </>
     );

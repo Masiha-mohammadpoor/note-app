@@ -1,0 +1,52 @@
+@import "../../mixin";
+
+.pagContainer {
+    @include flex(center , center , row);
+    list-style-type:none;
+    position:relative;
+    top:100%;
+}
+
+.pagPage{
+    font-size:20px;
+    text-decoration:none;
+    font-family: comfortaa;
+    color:$mainC;
+    margin: 0 5px;
+    @include wh(40px , 40px , 50%);
+    @include flex(center , center , row);
+    border:2px solid #fff;
+    transition:all .3s;
+    -webkit-transition:all .3s;
+    -moz-transition:all .3s;
+    -ms-transition:all .3s;
+    -o-transition:all .3s;
+    &:hover {
+        border-color: $mainC;
+    }
+}
+
+.activePage {
+    background-color:$mainC;
+    color:#fff;
+    &:hover {
+        border : 2px solid #fff;
+    }
+}
+
+.nextAndPrevious {
+    color:$mainC;
+    font-weight:none;
+    @include font(30px , bold , comfortaa);
+}
+
+.previousAndNextLink {
+    color:#5b3196;
+    text-decoration:none;
+    @include font(30px , bold , comfortaa);
+    margin:0 10px;
+    &:hover {
+        color:$mainC;
+    }
+
+}

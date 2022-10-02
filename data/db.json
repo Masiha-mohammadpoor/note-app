@@ -1,88 +1,11 @@
 {
   "notes": [
     {
-      "title": "3",
-      "text": "2",
-      "type": "public",
-      "like": true,
-      "id": 2
-    },
-    {
-      "title": "1",
-      "text": "1",
+      "title": "yg",
+      "text": "jj",
       "type": "public",
       "like": false,
-      "id": 3
-    },
-    {
-      "title": "2",
-      "text": "2",
-      "type": "public",
-      "like": false,
-      "id": 4
-    },
-    {
-      "title": "3",
-      "text": "3",
-      "type": "public",
-      "like": false,
-      "id": 5
-    },
-    {
-      "title": "4",
-      "text": "4",
-      "type": "public",
-      "like": false,
-      "id": 6
-    },
-    {
-      "title": "5",
-      "text": "5",
-      "type": "public",
-      "like": false,
-      "id": 7
-    },
-    {
-      "title": "6",
-      "text": "6",
-      "type": "public",
-      "like": false,
-      "id": 8
-    },
-    {
-      "title": "7",
-      "text": "7",
-      "type": "public",
-      "like": false,
-      "id": 9
-    },
-    {
-      "title": "8",
-      "text": "8",
-      "type": "public",
-      "like": false,
-      "id": 10
-    },
-    {
-      "title": "9",
-      "text": "9",
-      "type": "public",
-      "like": false,
-      "id": 11
-    },
-    {
-      "title": "10",
-      "text": "10",
-      "type": "public",
-      "like": true,
-      "id": 12
-    },
-    {
-      "title": "11",
-      "text": "11",
-      "type": "public",
-      "like": false,
-      "id": 13
+      "id": 1
     }
   ]
 }
