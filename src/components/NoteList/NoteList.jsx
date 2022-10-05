@@ -6,7 +6,6 @@ import Button from "react-bootstrap/Button";
 import {Link} from "react-router-dom";
 import {FaPlus} from "react-icons/fa";
 
-
 const NoteList = ({notes , request , likeHandler , deleteHandler}) => {
 
     const nothingNotes = () => {

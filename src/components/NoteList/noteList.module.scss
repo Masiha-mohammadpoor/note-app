@@ -4,6 +4,7 @@
     display: grid;
     grid-template-columns: repeat(3 , 25%);
     justify-content: space-evenly;
+    flex-direction: row-reverse;
     width:100%;
 }
 

@@ -5,8 +5,9 @@ import getAllData from "../../Services/getAllData";
 import editData from "../../Services/editData";
 import deleteData from "../../Services/deleteData";
 import styles from "./pagination.module.scss";
-
-
+import Header from "../Header/Header";
+import Menu from "../Menu/Menu";
+import Col from "react-bootstrap/Col";
 const Pagination = () => {
 
   const [notes, setNotes] = useState([]);
@@ -16,6 +17,7 @@ const Pagination = () => {
     const [pageCount, setPageCount] = useState(0);
     const [itemOffset, setItemOffset] = useState(0);
     const itemsPerPage = 9;
+
 
     useEffect(() => {
       const getData = async () => {
@@ -34,7 +36,6 @@ const Pagination = () => {
 
     useEffect(() => {
         const endOffset = itemOffset + itemsPerPage;
-        console.log(`Loading items from ${itemOffset} to ${endOffset}`);
         setCurrentItems(notes.slice(itemOffset, endOffset));
         setPageCount(Math.ceil(notes.length / itemsPerPage));
       }, [itemOffset, itemsPerPage, notes]);
@@ -42,9 +43,6 @@ const Pagination = () => {
 
       const handlePageClick = (event) => {
         const newOffset = (event.selected * itemsPerPage) % notes.length;
-        console.log(
-          `User requested page number ${event.selected}, which is offset ${newOffset}`
-        );
         setItemOffset(newOffset);
       };
 
@@ -71,10 +69,28 @@ const Pagination = () => {
       }
   }
 
+  const searchHandler = (value) => {
+    if(value){
+      const endOffset = itemOffset + itemsPerPage;
+      const filtered = notes.slice(itemOffset, endOffset).filter(n => {
+        return n.title.toLowerCase().includes(value.toLowerCase());
+      });
+
+      setCurrentItems(filtered);
+    }else {
+      const endOffset = itemOffset + itemsPerPage;
+      setCurrentItems(notes.slice(itemOffset, endOffset));
+    }
+  }
+
 
       
     return ( 
         <>
+        <Header searchField={true} searchHandler={searchHandler}/>
+        <Menu/>
+        <Col xs={10} className="main m-0">
+        <main className="m-0">
         <NoteList notes={currentItems} request={request} likeHandler={likeHandler} deleteHandler={deleteHandler}/>
         <ReactPaginate
         breakLabel="..."
@@ -93,8 +109,11 @@ const Pagination = () => {
         previousLinkClassName={styles.previousAndNextLink}
         nextLinkClassName={styles.previousAndNextLink}
       />
+      </main>
+  </Col>
+
         </>
     );
 }
- 
+
 export default Pagination;
