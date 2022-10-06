@@ -9,18 +9,6 @@ import NothingNotes from "../NothingNotes/NothingNotes";
 
 const NoteList = ({notes , request , likeHandler , deleteHandler}) => {
 
-    // const nothingNotes = () => {
-    //     return (    
-    //         <article className={`${styles.nothingContainer} d-flex justify-content-evenly align-items-center flex-column`}>
-    //             <img src={nothingImg} alt="nothing"/>
-    //             <h5 className="text-secondary">Nothing is available</h5>
-    //             <Link to="/write"><Button style={{backgroundColor:"#4c366b"}} className="border-0">add note ?</Button></Link>
-    //         </article>
-    //     );
-    // };
-
-
-
     const renderNotes = () => {
         if (notes.length >= 1 ){
             return notes.map(n => {

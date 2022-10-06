@@ -15,7 +15,8 @@ const EditNotes = () => {
     const [note, setNote] = useState({
         title: "",
         text: "",
-        type : "public"
+        type : "public",
+        date : ""
     });
 
     const [like , setLike] = useState(false);
@@ -29,7 +30,7 @@ const EditNotes = () => {
         try{
             const {data} = await getOneData(params.id);
             setLike(data.like);
-            setNote({title : data.title , text : data.text , type : data.type});
+            setNote({title : data.title , text : data.text , type : data.type , date : data.date});
         }catch(err){
             console.log(err);
         }
@@ -81,7 +82,7 @@ const EditNotes = () => {
                     try{
                         const {data} = await getOneData(params.id);
                         setLike(data.like);
-                        setNote({title : data.title , text : data.text , type : data.type});
+                        setNote({title : data.title , text : data.text , type : data.type , date : data.date});
                     }catch(err){
                         console.log(err);
                     }

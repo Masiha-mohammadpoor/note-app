@@ -10,6 +10,7 @@ const ShowNote = () => {
     const [note , setNote] = useState({
         title : "",
         text : "",
+        date : ""
     });
 
     const [style , setStyle] = useState({
@@ -24,7 +25,7 @@ const ShowNote = () => {
         const getData = async () => {
             try{
                 const {data} = await getOneData(params.id);
-                setNote({title : data.title , text : data.text});
+                setNote({title : data.title , text : data.text , date : data.date});
             }catch(err){
                 console.log(err)
             }
@@ -53,7 +54,7 @@ const ShowNote = () => {
                 <button onClick={copyHandler}><FaRegClone/></button>
             </div>
             <h2 className={`${styles.title} fw-bold`}>{note.title}</h2>
-            <small className="text-muted d-inline-block pb-4">05/07/1401</small>
+            <small className="text-muted d-inline-block pb-4">{note.date}</small>
             <pre className={styles.text} style={{...textStyle}}>{note.text}</pre>
         </section>
     );

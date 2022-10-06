@@ -13,6 +13,7 @@ const Write = () => {
         title: "",
         text: "",
         type : "public",
+        date : `${new Date().toLocaleDateString()}`
     });
 
     const navigate = useNavigate();

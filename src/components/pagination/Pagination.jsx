@@ -48,8 +48,8 @@ const Pagination = () => {
 
       const likeHandler = async (noteData) => {
         try{
-            const {title , text , type , like , id} = noteData;
-            await editData(id , {title , text , type , like : !like});
+            const {title , text , type , date , like , id} = noteData;
+            await editData(id , {title , text , type , date , like : !like});
             const {data} = await getAllData();
             const filtered = await data.filter(n => n.type === "public");
             setNotes(filtered);
