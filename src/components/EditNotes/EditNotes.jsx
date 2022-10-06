@@ -77,8 +77,17 @@ const EditNotes = () => {
           })
           .then((willDelete) => {
             if (willDelete) {
-                setNote({title : "" , text : ""});
-              swal("this note is deleted", {
+                const getData = async () => {
+                    try{
+                        const {data} = await getOneData(params.id);
+                        setLike(data.like);
+                        setNote({title : data.title , text : data.text , type : data.type});
+                    }catch(err){
+                        console.log(err);
+                    }
+                }
+                getData();
+                swal("this note is deleted", {
                 icon: "success",
               });
             } else {

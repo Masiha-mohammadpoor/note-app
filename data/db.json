@@ -1,3 +1,11 @@
 {
-  "notes": []
+  "notes": [
+    {
+      "title": "masiha",
+      "text": "masiha",
+      "type": "public",
+      "like": false,
+      "id": 1
+    }
+  ]
 }
