@@ -10,7 +10,7 @@ const Note = ({id , title , text , type , like , onLike , onDelete}) => {
         <article className={` ${styles.Note} p-3 mb-4 d-flex justify-content-between align-items-start flex-column`}>
             <div className="w-100 d-flex justify-content-between align-items-center">
                 <h4>{title}</h4>
-                <h5>{type === "public" ? <FaLockOpen/> : <FaLock/>}</h5>
+                <h5>{type === "private" ? <FaLock/> : ""}</h5>
             </div>
             <p>{text.slice(0 , 20) + "..."}</p>
             <div className="w-100 d-flex justify-content-between align-items-center">

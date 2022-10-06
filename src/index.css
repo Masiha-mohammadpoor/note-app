@@ -49,3 +49,21 @@ body{
     width: 100%;
 }
 
+  * {
+    scrollbar-width: auto;
+    scrollbar-color: #510566 #cfcfcf;
+  }
+
+  *::-webkit-scrollbar {
+    width: 16px;
+  }
+
+  *::-webkit-scrollbar-track {
+    background: #cfcfcf;
+  }
+
+  *::-webkit-scrollbar-thumb {
+    background-color: #510566;
+    border-radius: 10px;
+    border: 3px solid #ffffff;
+  }
