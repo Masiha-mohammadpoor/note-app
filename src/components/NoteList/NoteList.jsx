@@ -5,18 +5,19 @@ import nothingImg from "../../assets/image/nothingImg.svg";
 import Button from "react-bootstrap/Button";
 import {Link} from "react-router-dom";
 import {FaPlus} from "react-icons/fa";
+import NothingNotes from "../NothingNotes/NothingNotes";
 
 const NoteList = ({notes , request , likeHandler , deleteHandler}) => {
 
-    const nothingNotes = () => {
-        return (    
-            <article className={`${styles.nothingContainer} d-flex justify-content-evenly align-items-center flex-column`}>
-                <img src={nothingImg} alt="nothing"/>
-                <h5 className="text-secondary">Nothing is available</h5>
-                <Link to="/write"><Button style={{backgroundColor:"#4c366b"}} className="border-0">add note ?</Button></Link>
-            </article>
-        );
-    };
+    // const nothingNotes = () => {
+    //     return (    
+    //         <article className={`${styles.nothingContainer} d-flex justify-content-evenly align-items-center flex-column`}>
+    //             <img src={nothingImg} alt="nothing"/>
+    //             <h5 className="text-secondary">Nothing is available</h5>
+    //             <Link to="/write"><Button style={{backgroundColor:"#4c366b"}} className="border-0">add note ?</Button></Link>
+    //         </article>
+    //     );
+    // };
 
 
 
@@ -34,7 +35,7 @@ const NoteList = ({notes , request , likeHandler , deleteHandler}) => {
                 onDelete={() => deleteHandler(n.id)} /> 
             })
         }else if(notes.length === 0 && request){
-            return nothingNotes()
+            return <NothingNotes/>
         }else{
             return <div className={styles.loaderContainer}><InfinitySpin 
                 width='200'

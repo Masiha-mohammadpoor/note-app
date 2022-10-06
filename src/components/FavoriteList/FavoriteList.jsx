@@ -8,7 +8,7 @@ import {Link} from "react-router-dom";
 import editData from "../../Services/editData";
 import getAllData from "../../Services/getAllData";
 import deleteData from "../../Services/deleteData";
-
+import NothingNotes from "../NothingNotes/NothingNotes";
 
 const FavoritesList = () => {
 
@@ -29,15 +29,15 @@ const FavoritesList = () => {
         getData();
     }, []);
 
-    const nothingNotes = () => {
-        return (    
-            <article className={`${styles.nothingContainer} d-flex justify-content-evenly align-items-center flex-column`}>
-                <img src={nothingImg} alt="nothing"/>
-                <h5 className="text-secondary">Nothing is available</h5>
-                <Link to="/notes"><Button style={{backgroundColor:"#4c366b"}} className="border-0">Go To Note List</Button></Link>
-            </article>
-        );
-    }
+    // const nothingNotes = () => {
+    //     return (    
+    //         <article className={`${styles.nothingContainer} d-flex justify-content-evenly align-items-center flex-column`}>
+    //             <img src={nothingImg} alt="nothing"/>
+    //             <h5 className="text-secondary">Nothing is available</h5>
+    //             <Link to="/notes"><Button style={{backgroundColor:"#4c366b"}} className="border-0">Go To Note List</Button></Link>
+    //         </article>
+    //     );
+    // }
 
     const likeHandler = async (noteData) => {
         try{
@@ -75,7 +75,7 @@ const FavoritesList = () => {
                 onDelete={() => deleteHandler(n.id)} /> 
             })
         }else if(notes.length === 0 && request !== ""){
-            return nothingNotes()
+            return <NothingNotes/>
         }else{
             return <div className={styles.loaderContainer}><InfinitySpin 
                 width='200'

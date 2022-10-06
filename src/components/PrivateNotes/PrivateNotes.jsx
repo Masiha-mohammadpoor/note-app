@@ -13,6 +13,8 @@ import getAllData from "../../Services/getAllData";
 import editData from "../../Services/editData";
 import deleteData from "../../Services/deleteData";
 import { encode, decode } from 'string-encode-decode';
+import NothingNotes from "../NothingNotes/NothingNotes";
+
 
 const PrivateNotes = () => {
 
@@ -117,16 +119,6 @@ const PrivateNotes = () => {
         )
     }
 
-    const nothingNotes = () => {
-        return (
-            <article className={`${styles.nothingContainer} d-flex justify-content-evenly align-items-center flex-column`}>
-                <img src={nothingImg} alt="nothing" />
-                <h5 className="text-secondary">Nothing is available</h5>
-                <Link to="/write"><Button style={{ backgroundColor: "#4c366b" }} className="border-0">add note ?</Button></Link>
-            </article>
-        );
-    }
-
     const deleteHandler = async (id) => {
         try {
             const filtered = notes.filter(n => n.id !== id);
@@ -205,7 +197,7 @@ const PrivateNotes = () => {
                     onDelete={() => deleteHandler(n.id)} />
             })
         } else if (notes.length === 0 && request !== "") {
-            return nothingNotes()
+            return <NothingNotes/>
         } else {
             return <div className={styles.loaderContainer}><InfinitySpin
                 width='200'
