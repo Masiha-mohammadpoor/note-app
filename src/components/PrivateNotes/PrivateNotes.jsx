@@ -106,13 +106,13 @@ const PrivateNotes = () => {
                 </h5>
                 <input
                     type="password"
-                    className={styles.passwordField}
+                    className={`${styles.passwordField} mb-2`}
                     autoFocus
                     value={password}
                     onChange={passwordChangeHandler}
                     pattern="[0-9]" />
-                <p className="my-4"><button onClick={() => setLock("forget")} className="border-0 bg-transparent" style={{ color: "#5b3196", fontFamily: "comfortaa" }}>forget password ?</button></p>
-                <Button onClick={submitHandler} style={{ backgroundColor: "#5b3196", width: "100px", fontFamily: "comfortaa" }} className="border-0">click</Button>
+                {forgetQuestion && <p><button onClick={() => setLock("forget")} className="border-0 bg-transparent" style={{ color: "#5b3196", fontFamily: "comfortaa" }}>forget password ?</button></p>}
+                <Button onClick={submitHandler} style={{ backgroundColor: "#5b3196", width: "100px", fontFamily: "comfortaa" }} className="border-0 mt-2">click</Button>
             </article>
         )
     }

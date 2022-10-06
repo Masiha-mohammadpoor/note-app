@@ -4,9 +4,29 @@
     box-sizing:border-box;
 }
 
+html {
+    transition: all .2s;
+    -webkit-transition: all .2s;
+    -moz-transition: all .2s;
+    -ms-transition: all .2s;
+    -o-transition: all .2s;
+}
+
+
+
+html.darkTheme {
+    filter: invert(1) hue-rotate(190deg);
+    -webkit-filter: invert(1) hue-rotate(190deg);
+}
+
+html.darkTheme img{
+    filter: invert(1) hue-rotate(180deg);
+}
+
 body{
-    background-color: #000;
     overflow-x: hidden;
+    /* filter: invert(1) hue-rotate(120deg);
+    -webkit-filter: invert(1) hue-rotate(120deg); */
 }
 
 @font-face {

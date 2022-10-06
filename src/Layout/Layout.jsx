@@ -6,10 +6,14 @@ import Row from 'react-bootstrap/Row';
 
 const Layout = ({children}) => {
 
+    const searchHandler = () => {
+        return "";
+    }
+
     return (
         <>
             <Menu/>
-            <Header/>
+            <Header searchHandler={searchHandler}/>
             <Col xs={10} className="main m-0">
                 <main className="m-0">
                     {children}
