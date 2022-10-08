@@ -1,8 +1,8 @@
 import styles from "./menu.module.scss";
 import Col from "react-bootstrap/Col";
 import Logo from "../../assets/image/logo.png";
-import {FaRegListAlt , FaPencilAlt , FaHome , FaRegHeart , FaLock} from "react-icons/fa";
-import {Link} from "react-router-dom";
+import {FaRegListAlt , FaPencilAlt , FaHome , FaRegHeart , FaLock , FaTasks} from "react-icons/fa";
+import {NavLink} from "react-router-dom";
 
 const Menu = () => {
     return (
@@ -14,18 +14,21 @@ const Menu = () => {
                 </div>
 
                 <div className={`w-100 ${styles.list}`}>
-                    <ul className=" d-flex justify-content-evenly align-items-start flex-column p-0 m-0">
-                        <li><Link to="/"><span><FaHome/></span>Home</Link></li>
-                        <li><Link to="/notes"><span><FaRegListAlt/></span>All notes</Link></li>
-                        <li><Link to="/write"><span><FaPencilAlt/></span>Write</Link></li>
-                        <li><Link to="/favorites"><span><FaRegHeart/></span>Favorites</Link></li>
-                        <li><Link to="/private"><span><FaLock/></span>private</Link></li>
-                        <li><Link to="#"><span><FaPencilAlt/></span>write notes</Link></li>
-                        <li><Link to="#"><span><FaRegListAlt/></span>all notes</Link></li>
-                        <li><Link to="#"><span><FaPencilAlt/></span>write notes</Link></li>
+                    <ul className=" d-flex justify-content-evenly align-items-startm flex-column p-0 m-0">
+                        <li><NavLink className={data => data.isActive ? styles.activeLink : styles.link} style={{backgroundColor:"transparent"}} to="/"><span><FaHome/></span>Home</NavLink></li>
+                        <li><NavLink className={data => data.isActive ? styles.activeLink : styles.link} to="/notes"><span><FaRegListAlt/></span>All notes</NavLink></li>
+                        <li><NavLink className={data => data.isActive ? styles.activeLink : styles.link} to="/write"><span><FaPencilAlt/></span>Write</NavLink></li>
+                        <li><NavLink className={data => data.isActive ? styles.activeLink : styles.link} to="/favorites"><span><FaRegHeart/></span>Favorites</NavLink></li>
+                        <li><NavLink className={data => data.isActive ? styles.activeLink : styles.link} to="/private"><span><FaLock/></span>private</NavLink></li>
+                        <li><NavLink className={data => data.isActive ? styles.activeLink : styles.link} to="/check-list"><span><FaTasks/></span>Check list</NavLink></li>
+                        <li><NavLink className={data => data.isActive ? styles.activeLink : styles.link} to="/private"><span><FaLock/></span>private</NavLink></li>
+                        {/* <li><NavLink className={data => data.isActive ? styles.activeLink : styles.link} to="#"><span><FaPencilAlt/></span>write notes</NavLink></li>
+                        <li><NavLink className={data => data.isActive ? styles.activeLink : styles.link} to="#"><span><FaRegListAlt/></span>all notes</NavLink></li>
+                        <li><NavLink className={data => data.isActive ? styles.activeLink : styles.link} to="#"><span><FaPencilAlt/></span>write notes</NavLink></li> */}
                     </ul>
                 </div>
 
+                <div></div>
                 <div></div>
             </nav>
         </Col>

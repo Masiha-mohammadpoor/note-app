@@ -9,9 +9,9 @@ const App = () => {
         <Routes>
             {RoutesData.map(r => {
                     if(r.layout){
-                        return <Route path={r.path} element={<Layout>{r.element}</Layout>} />
+                        return <Route path={r.path} key={r.path} element={<Layout>{r.element}</Layout>} />
                     }else {
-                        return <Route path={r.path} element={r.element} />
+                        return <Route path={r.path} key={r.path} element={r.element} />
                     }
                 })}
         </Routes>

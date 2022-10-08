@@ -1,0 +1,29 @@
+@import "../../mixin";
+
+.checkList {
+    * {
+        font-family : comfortaa;
+    }
+    .task {
+        border-bottom:2px solid $mainC;
+    }
+    .completedTasks {
+        border-bottom:2px solid $mainC;
+        opacity : .5;
+    }
+    .checkbox {
+        accent-color: #7754a9;
+        transform: scale(1.3);
+        -webkit-transform: scale(1.3);
+        -moz-transform: scale(1.3);
+        -ms-transform: scale(1.3);
+        -o-transform: scale(1.3);
+}
+.loaderContainer{
+    display:flex;
+    justify-content : center;
+    align-items : center;
+    margin-top:30vh;
+}
+
+}

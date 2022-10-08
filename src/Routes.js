@@ -6,7 +6,7 @@ import PrivateNotes from "./components/PrivateNotes/PrivateNotes";
 import ShowNote from "./components/ShowNote/ShowNote";
 import Pagination from "./components/pagination/Pagination";
 import NotFound from "./components/NotFound/NotFound";
-
+import CheckList from "./components/CheckList/CheckList";
 
 
 const Routes = [
@@ -15,6 +15,7 @@ const Routes = [
     {path : "/write" , element : <Write/> , layout : true},
     {path : "/favorites" , element : <FavoritesList/> , layout : true},
     {path : "/private" , element : <PrivateNotes/> , layout : true},
+    {path : "/check-list" , element : <CheckList/> , layout : true},
     {path : "*" , element : <NotFound/> , layout : false},
     {path : "/edit/:id" , element : <EditNotes/> , layout : true},
     {path : "/note/:id" , element : <ShowNote/> , layout : true}

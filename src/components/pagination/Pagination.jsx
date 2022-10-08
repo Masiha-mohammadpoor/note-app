@@ -8,6 +8,9 @@ import styles from "./pagination.module.scss";
 import Header from "../Header/Header";
 import Menu from "../Menu/Menu";
 import Col from "react-bootstrap/Col";
+import swal from "sweetalert";
+
+
 const Pagination = () => {
 
   const [notes, setNotes] = useState([]);
@@ -58,15 +61,34 @@ const Pagination = () => {
         }
     }   
 
-    const deleteHandler = async (id) => {
-      try{
+    const deleteHandler = (id) => {
+      const deletNoteData = async () => {
+        try {
           await deleteData(id);
           const {data} = await getAllData();
           const filtered = await data.filter(n => n.type === "public");
-          setNotes(filtered);
-      }catch(err){
-          console.log(err)
+          setNotes(filtered);            
+        }catch(err){
+          console.error(err);
+        }
       }
+
+        swal({
+          title: "Are you sure?",
+          icon: "warning",
+          buttons: true,
+          dangerMode: true,
+        })
+          .then((willDelete) => {
+              if (willDelete) {
+                deletNoteData();
+                  swal("this note is deleted", {
+                      icon: "success",
+                  });
+              } else {
+                  return "";
+              }
+          });
   }
 
   const searchHandler = (value) => {
