@@ -1,7 +1,7 @@
 import styles from "./menu.module.scss";
 import Col from "react-bootstrap/Col";
 import Logo from "../../assets/image/logo.png";
-import {FaRegListAlt , FaPencilAlt , FaHome , FaRegHeart , FaLock , FaTasks} from "react-icons/fa";
+import {FaRegListAlt , FaPencilAlt , FaHome , FaRegHeart , FaLock , FaTasks , FaRocketchat} from "react-icons/fa";
 import {NavLink} from "react-router-dom";
 
 const Menu = () => {
@@ -21,10 +21,7 @@ const Menu = () => {
                         <li><NavLink className={data => data.isActive ? styles.activeLink : styles.link} to="/favorites"><span><FaRegHeart/></span>Favorites</NavLink></li>
                         <li><NavLink className={data => data.isActive ? styles.activeLink : styles.link} to="/private"><span><FaLock/></span>private</NavLink></li>
                         <li><NavLink className={data => data.isActive ? styles.activeLink : styles.link} to="/check-list"><span><FaTasks/></span>Check list</NavLink></li>
-                        <li><NavLink className={data => data.isActive ? styles.activeLink : styles.link} to="/private"><span><FaLock/></span>private</NavLink></li>
-                        {/* <li><NavLink className={data => data.isActive ? styles.activeLink : styles.link} to="#"><span><FaPencilAlt/></span>write notes</NavLink></li>
-                        <li><NavLink className={data => data.isActive ? styles.activeLink : styles.link} to="#"><span><FaRegListAlt/></span>all notes</NavLink></li>
-                        <li><NavLink className={data => data.isActive ? styles.activeLink : styles.link} to="#"><span><FaPencilAlt/></span>write notes</NavLink></li> */}
+                        <li><NavLink className={data => data.isActive ? styles.activeLink : styles.link} to="/about"><span><FaRocketchat/></span>About</NavLink></li>
                     </ul>
                 </div>
 

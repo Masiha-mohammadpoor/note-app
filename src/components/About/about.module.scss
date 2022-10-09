@@ -1,0 +1,28 @@
+@import "../../mixin";
+
+.about {
+    font-family : comfortaa;
+    .me {
+        color:#5b3196;
+    }
+
+    .links {
+        a{
+            color:#5b3196;
+            transition: all .3s;
+            -webkit-transition: all .3s;
+            -moz-transition: all .3s;
+            -ms-transition: all .3s;
+            -o-transition: all .3s;
+            &:hover {
+                transform: scale(1.2);
+                -webkit-transform: scale(1.2);
+                -moz-transform: scale(1.2);
+                -ms-transform: scale(1.2);
+                -o-transform: scale(1.2);
+                filter: drop-shadow(0 0 3px #340870);
+                -webkit-filter: drop-shadow(0 0 3px #340870);
+}
+}
+    }
+}
