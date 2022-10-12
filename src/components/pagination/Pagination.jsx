@@ -72,7 +72,6 @@ const Pagination = () => {
           console.error(err);
         }
       }
-
         swal({
           title: "Are you sure?",
           icon: "warning",
@@ -105,15 +104,12 @@ const Pagination = () => {
     }
   }
 
-
       
     return ( 
         <>
-        <Header searchField={true} searchHandler={searchHandler}/>
-        <Menu/>
-        <Col xs={10} className="main m-0">
-        <main className="m-0">
-        <NoteList notes={currentItems} request={request} likeHandler={likeHandler} deleteHandler={deleteHandler}/>
+        <Col xl={10} xs={12} className="w-100 m-0">
+        <main className="w-100 m-0">
+        <NoteList notes={currentItems} request={request} likeHandler={likeHandler} deleteHandler={deleteHandler} searchHandler={searchHandler}/>
         <ReactPaginate
         breakLabel="..."
         nextLabel=">"

@@ -1,20 +1,23 @@
 import Header from "../components/Header/Header";
 import Menu from "../components/Menu/Menu";
 import Col from 'react-bootstrap/Col';
-import Row from 'react-bootstrap/Row';
+import { useState } from "react";
+
+const Layout = ({children , search }) => {
+
+    const [menu , setMenu] = useState(false);
 
 
-const Layout = ({children}) => {
+    // const showMenu = () => {
+    //     setMenu(data => !data);
+    // }
 
-    const searchHandler = () => {
-        return "";
-    }
 
     return (
         <>
-            <Menu/>
-            <Header searchHandler={searchHandler}/>
-            <Col xs={10} className="main m-0">
+            <Menu menu={menu} setMenu={setMenu}/>
+            <Header showMenu={() => setMenu(data => !data)} searchField={search}/>
+            <Col xl={10} xs={12} className="main m-0">
                 <main className="m-0">
                     {children}
                 </main>

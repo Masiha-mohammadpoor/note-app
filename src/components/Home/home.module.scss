@@ -30,9 +30,11 @@
 .main {
     font-family: comfortaa;
     font-weight: 100;
+    h5 , h2 {
+        text-align:left;
+    }
     .textsContainer{
         height:40vh;
-        @include flex(space-between , flex-start , column);
         .Button{
             background-color: $mainC;
             border: none;
@@ -53,12 +55,18 @@
     .imgContainer{
         div {
             @include flex(flex-end,center,row);
-            background-image: url("../../assets/image/blobMain.svg");
-            background-repeat: no-repeat;
-            background-size: 65%;
-            background-position: 150px 38%;
-            transition: a;
 }
     }
 }
 
+@media (max-width:768px){
+    .main {
+        h5 , h2 {
+            text-align:center;
+        }
+
+        .btnContainer {
+            @include flex(center , center , row);
+        }
+    }
+}

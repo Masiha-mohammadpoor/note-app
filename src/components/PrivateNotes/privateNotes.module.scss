@@ -2,6 +2,7 @@
 
 .lockImg{
     width:350px;
+    padding:30px;
 }
 
 .passwordField{
@@ -36,6 +37,28 @@
     grid-template-columns: repeat(3 , 25%);
     justify-content: space-evenly;
     width:100%;
+}
+
+@media (max-width:890px){
+    .noteList {
+        display: grid;
+        grid-template-columns: repeat(2 , 40%);
+        justify-content: space-evenly;
+        flex-direction: row-reverse;    
+    }
+}
+
+@media (max-width:530px){
+    .noteList {
+        display: grid;
+        grid-template-columns: repeat(1 , 85%);
+        justify-content: space-evenly;
+        flex-direction: row-reverse;
+        margin-right:100px;
+        position:relative;
+        right:12px;
+    }
+
 }
 
 
@@ -90,3 +113,8 @@
     }
 }
 
+@media (max-width:700px){
+    .question {
+        width:95%;
+    }
+}

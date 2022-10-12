@@ -14,8 +14,8 @@ const Task = (newDate) => {
 
     return (
         <div className={`mb-3 d-flex justify-content-between align-items-center ${completed ? styles.completedTasks : styles.task}`}>
-        <h5 className="m-0">{task}</h5>
-        <small className="text-secondary">{date}</small>
+        <h5 className="m-0">{task.length <= 10 ? task.toLowerCase() : task.toLowerCase().slice(0,10) + " ..."}</h5>
+        <small className="text-secondary d-none d-md-block">{date}</small>
         <span>
             <button onClick={deleteHandler} className="mx-3 bg-transparent border-0 text-danger fs-5"><FaTrashAlt/></button>
             <input 
@@ -117,9 +117,9 @@ const CheckList = () => {
 
     return ( 
         <section className={styles.checkList}>
-            <article className="w-50 mx-auto my-5 d-flex justify-content-evenly">
+            <article className="w-75 mx-auto my-5 bginfo d-flex justify-content-evenly">
                 <Form.Control 
-                    className="w-75" 
+                    className={`${styles.taskInput} w-75`} 
                     placeholder="task..."
                     value={task}
                     onChange={e => setTask(e.target.value)}/>
@@ -127,7 +127,7 @@ const CheckList = () => {
                 <Button 
                 style={{backgroundColor:"#4c366b"}} 
                 className="border-0"
-                onClick={addTask}><FaPlus/> Add</Button>
+                onClick={addTask}>Add</Button>
             </article>
             <article className=" w-75 mx-auto">
                 {renderTasks()}

@@ -46,7 +46,7 @@ const ShowNote = () => {
 
     return (  
         <section className={`${styles.noteContainer} m-5`}>
-            <div className="w-25 mb-4 d-flex justify-content-between align-items-center">
+            <div className={`${styles.options} mb-4 d-flex justify-content-between align-items-center`}>
                 <button onClick={() => setStyle({...style , fontSize : style.fontSize < 42 ? style.fontSize + 1 : style.fontSize})}><FaSearchPlus/></button>
                 <button onClick={() => setStyle({...style , fontSize : style.fontSize > 10 ? style.fontSize - 1 : style.fontSize})}><FaSearchMinus/></button>
                 <button onClick={() => setStyle({...style , fontWeight : style.fontWeight === "" ? "bold" : ""})}><FaBold/></button>

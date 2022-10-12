@@ -88,7 +88,7 @@ const EditNotes = () => {
                     }
                 }
                 getData();
-                swal("this note is deleted", {
+                swal("Changes removed", {
                 icon: "success",
               });
             } else {

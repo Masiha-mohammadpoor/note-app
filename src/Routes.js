@@ -9,9 +9,10 @@ import NotFound from "./components/NotFound/NotFound";
 import CheckList from "./components/CheckList/CheckList";
 import About from "./components/About/About";
 
+
 const Routes = [
     {path : "/" , element : <Home/> , layout : false},
-    {path : "/notes" , element : <Pagination/> , layout : false},
+    {path : "/notes" , element : <Pagination /> , layout : true },
     {path : "/write" , element : <Write/> , layout : true},
     {path : "/favorites" , element : <FavoritesList/> , layout : true},
     {path : "/private" , element : <PrivateNotes/> , layout : true},

@@ -1,17 +1,16 @@
 import styles from "./header.module.scss";
 import Col from "react-bootstrap/Col";
-import { FaMoon, FaGithub , FaSun} from "react-icons/fa";
+import { FaMoon, FaGithub , FaSun , FaBars} from "react-icons/fa";
 import {useState , useEffect} from "react";
 
-const Header = ({searchField , searchHandler}) => {
+
+const Header = ({ showMenu , searchField}) => {
 
     const [search , setSearch] = useState("");
     const [darkTheme , setDarkTheme] = useState("");
 
 
-    useEffect(() => {
-            searchHandler(search);
-    } , [search]);
+
     
     useEffect(() => {
         const htmlTag = document.querySelector("html");
@@ -20,7 +19,8 @@ const Header = ({searchField , searchHandler}) => {
         else {
             htmlTag.classList.remove("darkTheme");
         }
-} , [darkTheme])
+} , [darkTheme]);
+
 
 
     const darkThemeHandler = () => {
@@ -34,15 +34,10 @@ const Header = ({searchField , searchHandler}) => {
 
 
     return (
-        <Col xs={10} className="float-end">
+        <Col xl={10} xs={12} className="float-end">
             <header className={`${styles.header} w-100 d-flex justify-content-between align-content-center p-3`}>
-                {!searchField ? <span></span> 
-                : <input 
-                    type="search" 
-                    placeholder="search..." 
-                    className={styles.searchBox}
-                    onChange={(e) => setSearch(e.target.value)}
-                    value={search}/>}
+                <button onClick={showMenu} className="d-xl-none d-xs-block text-light border-0 bg-transparent fs-4"><FaBars/></button>
+                <span></span>
                 <div className={`d-flex justify-content-between align-items-center ${styles.options}`}>
                     <button onClick={darkThemeHandler}>
                         {localStorage.getItem("darkTheme") ? <FaSun/> :<FaMoon />}
@@ -51,8 +46,11 @@ const Header = ({searchField , searchHandler}) => {
                 </div>
             </header>
         </Col>
+
     );
 
 }
 
+
 export default Header;
+

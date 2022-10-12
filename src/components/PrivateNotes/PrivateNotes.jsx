@@ -86,12 +86,13 @@ const PrivateNotes = () => {
         return (
             <article className="d-flex justify-content-between align-items-center flex-column">
                 <img src={forgetImg} alt="forget image" className={`${styles.lockImg} mb-5`} />
-                <p style={{ fontFamily: "comfortaa" }}><span className="text-danger">!!! </span>Enter the correct answer to change the password</p>
-                <h5 style={{ fontFamily: "comfortaa" }} className="mb-4">{question} ?</h5>
+                <p style={{ fontFamily: "comfortaa" }} className="w-75 text-center"><span className="text-danger">!!! </span>Enter the correct answer to change the password</p>
+                <h5 style={{ fontFamily: "comfortaa" }} className="mb-4">{question}?</h5>
                 <Form.Control
                     value={answer}
                     placeholder="answer..."
                     style={{ fontFamily: "comfortaa" }}
+                    className="w-75"
                     autoFocus
                     onChange={(e) => setAnswer(e.target.value)} />
                 <Button onClick={checkAnswerOfQuestion} style={{ backgroundColor: "#4c366b", fontFamily: "comfortaa" }} className="w-50 mt-4 border-0">Check the answer</Button>
@@ -119,15 +120,36 @@ const PrivateNotes = () => {
         )
     }
 
-    const deleteHandler = async (id) => {
-        try {
-            const filtered = notes.filter(n => n.id !== id);
-            setNotes(filtered);
+
+    const deleteHandler = (id) => {
+        const deletNoteData = async () => {
+          try {
             await deleteData(id);
-        } catch (err) {
-            console.log(err)
+            const {data} = await getAllData();
+            const filtered = await data.filter(n => n.type === "private");
+            setNotes(filtered);            
+          }catch(err){
+            console.error(err);
+          }
         }
+          swal({
+            title: "Are you sure?",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+          })
+            .then((willDelete) => {
+                if (willDelete) {
+                  deletNoteData();
+                    swal("this note is deleted", {
+                        icon: "success",
+                    });
+                } else {
+                    return "";
+                }
+            });
     }
+  
 
     const likeHandler = async (noteData) => {
         try {
@@ -160,7 +182,8 @@ const PrivateNotes = () => {
     const setForgetQuestion = () => {
         return (
             <article className="m-5 w-100 d-flex justify-content-between align-items-center flex-column">
-                <p style={{ fontFamily: "comfortaa" }} className="fs-5 w-50 text-center pb-3">Please save a favorite question and answer and remember it to use it to change the password if you forget the password<span className="text-danger mx-1">!!!</span></p>
+                <p style={{ fontFamily: "comfortaa" }} className="fs-5 w-100 text-center">Please enter the security question<span className="text-danger mx-1">!!!</span></p>
+                <small className="text-secondary text-center pb-3 w-100" style={{fontFamily : "comfortaa"}}>This security response will only be for password recovery</small>
                 <input
                     type="text"
                     placeholder="question ..."
@@ -177,8 +200,8 @@ const PrivateNotes = () => {
                     name="answer"
                     value={question.answer}
                     onChange={questionChangeHandler}
-                />
-                <Button onClick={saveQuestion} className="w-25 fs-6 border-0" style={{ fontFamily: "comfortaa", backgroundColor: "#4c366b" }}>save</Button>
+                    autoComplete={"off"} />
+                <Button onClick={saveQuestion} className="w-50 fs-6 border-0 border-0" style={{ fontFamily: "comfortaa", backgroundColor: "#4c366b" }}>save</Button>
             </article>
         )
     }

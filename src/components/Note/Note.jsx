@@ -11,7 +11,7 @@ const Note = ({id , title , text , type , like , onLike , onDelete}) => {
                 <h4>{title}</h4>
                 <h5>{type === "private" ? <FaLock/> : ""}</h5>
             </div>
-            <p>{text.slice(0 , 20) + "..."}</p>
+            <p>{text.slice(0 , 15) + "..."}</p>
             <div className="w-100 d-flex justify-content-between align-items-center">
                 <span style={{width:"40%"}} className="d-flex justify-content-between align-items-center">
                     <button onClick={onDelete} className="border-0 bg-transparent fs-5 text-danger"><FaTrashAlt/></button>

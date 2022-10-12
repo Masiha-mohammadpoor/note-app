@@ -1,13 +1,15 @@
 import styles from "./noteList.module.scss";
 import Note from "../Note/Note";
 import { InfinitySpin } from 'react-loader-spinner'
-import nothingImg from "../../assets/image/nothingImg.svg";
-import Button from "react-bootstrap/Button";
 import {Link} from "react-router-dom";
 import {FaPlus} from "react-icons/fa";
 import NothingNotes from "../NothingNotes/NothingNotes";
+import Form from "react-bootstrap/Form";
+import {useState} from "react";
 
-const NoteList = ({notes , request , likeHandler , deleteHandler}) => {
+const NoteList = ({notes , request , likeHandler , deleteHandler , searchHandler}) => {
+
+    const [search , setSearch] = useState("");
 
     const renderNotes = () => {
         if (notes.length >= 1 ){
@@ -23,7 +25,7 @@ const NoteList = ({notes , request , likeHandler , deleteHandler}) => {
                 onDelete={() => deleteHandler(n.id)} /> 
             })
         }else if(notes.length === 0 && request){
-            return <NothingNotes/>
+            return <NothingNotes btn={true}/>
         }else{
             return <div className={styles.loaderContainer}><InfinitySpin 
                 width='200'
@@ -32,10 +34,22 @@ const NoteList = ({notes , request , likeHandler , deleteHandler}) => {
         }
     }
 
+    const searchValue = (e) => {
+        setSearch(e.target.value);
+        searchHandler(e.target.value);
+    }
+
 
     return (
         <>
-        <section className={` ${notes.length >= 1 ?styles.noteList : styles.loaderContainer} w-100 p-3 mt-2`}>
+        <Form.Control 
+        type="search" 
+        placeholder="search..." 
+        onChange={searchValue}
+        className="w-50 m-auto mt-4"
+        value={search}/>
+
+        <section className={` ${notes.length >= 1 ? styles.noteList : styles.loaderContainer} w-100 px-3 mt-5`}>
             {renderNotes()}
         </section>
         <Link to="/write"><button className={styles.addBtn}><FaPlus/></button></Link>

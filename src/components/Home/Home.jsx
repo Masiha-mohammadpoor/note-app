@@ -20,15 +20,17 @@ const Home = () => {
             </header>
             <main className={`mt-5 pt-5 ${styles.main}`}>
                 <Container className="mt-3">
-                    <Row className="d-flex justify-content-between align-items-center">
-                        <Col xs={6} className={styles.textsContainer}>
-                            <h2 className="fw-bold lh-base">Write your notes here and save forever !!!</h2>
+                    <Row className="d-flex justify-content-between align-items-center flex-column-reverse flex-md-row">
+                        <Col xs={12} md={6} className={`${styles.textsContainer} d-flex justify-content-between flex-column`}>
+                            <h2 className="fw-bold lh-base mb-3">Write your notes here and save forever !!!</h2>
                             <h5 className="text-secondary lh-base">Take a big step towards success by writing notes, ideas, and daily tasks</h5>
-                            <Link to="/notes"><Button className={styles.Button}>Get Started</Button></Link>
+                            <div className={styles.btnContainer}>
+                            <Link to="/notes"><Button className={`${styles.Button} mt-3`}>Get Started</Button></Link>
+                            </div>
                         </Col>
-                        <Col xs={6} className={styles.imgContainer}>
-                            <div>
-                                <img src={mainImg} alt="main image" className="img-fluid w-75"/>
+                        <Col xs={12} md={6} className={styles.imgContainer}>
+                            <div className="d-flex justify-content-center align-items-center">
+                                <img src={mainImg} alt="main image" className="img-fluid w-75 mb-3"/>
                             </div>
                         </Col>
                     </Row>
@@ -37,5 +39,5 @@ const Home = () => {
         </>
     );
 }
-
+// d-xs-flex d-md-block
 export default Home;

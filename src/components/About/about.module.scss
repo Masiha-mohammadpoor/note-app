@@ -5,6 +5,10 @@
     .me {
         color:#5b3196;
     }
+    .image {
+        width:50%;
+    }
+
 
     .links {
         a{
@@ -24,5 +28,24 @@
                 -webkit-filter: drop-shadow(0 0 3px #340870);
 }
 }
+    }
+}
+@media (max-width:550px){
+    .about {
+        .image {
+            width:75%;
+        }
+    }
+}
+
+@media (max-width:768px){
+    .about{
+        .textContain {
+            @include flex(flex-start , center , column);
+            h5{
+                @include flex(flex-start , center , column);
+    
+            }
+        }    
     }
 }

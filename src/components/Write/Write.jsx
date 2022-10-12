@@ -64,7 +64,7 @@ const Write = () => {
             })
                 .then((willDelete) => {
                     if (willDelete) {
-                        setNote({ title: "", text: "" });
+                        setNote({ title: "", text: "" , type : "public", date : `${new Date().toLocaleDateString()}`});
                         swal("this note is deleted", {
                             icon: "success",
                         });
@@ -92,7 +92,7 @@ const Write = () => {
                         className={"w-75"}
                         placeholder='Title...' />
 
-                    <p className="w-75 d-flex justify-content-end">2/40</p>
+                    <p className="w-75 d-flex justify-content-end text-light">_</p>
 
                     <Form.Label className={styles.inputLabel}>Text :</Form.Label>
                     <Form.Control
