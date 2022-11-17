@@ -42,7 +42,7 @@ const Header = ({ showMenu , searchField}) => {
                     <button onClick={darkThemeHandler}>
                         {localStorage.getItem("darkTheme") ? <FaSun/> :<FaMoon />}
                         </button>
-                    <a href="#"><FaGithub /></a>
+                    <a target="_blank" href="https://github.com/Masiha-mohammadpoor/note-app"><FaGithub /></a>
                 </div>
             </header>
         </Col>

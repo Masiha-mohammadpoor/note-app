@@ -8,11 +8,6 @@ const Layout = ({children , search }) => {
     const [menu , setMenu] = useState(false);
 
 
-    // const showMenu = () => {
-    //     setMenu(data => !data);
-    // }
-
-
     return (
         <>
             <Menu menu={menu} setMenu={setMenu}/>

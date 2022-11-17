@@ -53,20 +53,20 @@ body{
     width: 100%;
 }
 
-  * {
+  body {
     scrollbar-width: auto;
     scrollbar-color: #510566 #cfcfcf;
   }
 
-  *::-webkit-scrollbar {
+  body::-webkit-scrollbar {
     width: 16px;
   }
 
-  *::-webkit-scrollbar-track {
+  body::-webkit-scrollbar-track {
     background: #cfcfcf;
   }
 
-  *::-webkit-scrollbar-thumb {
+  body::-webkit-scrollbar-thumb {
     background-color: #510566;
     border-radius: 10px;
     border: 3px solid #ffffff;

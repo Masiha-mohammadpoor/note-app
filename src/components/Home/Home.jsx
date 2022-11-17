@@ -16,7 +16,7 @@ const Home = () => {
                     <img src={Logo} alt="logo" />
                 </div>
                 <h3 className={styles.title}><span>Note</span> App</h3>
-                <a href="#" className={styles.github}><FaGithub /></a>
+                <a target="_blank" href="https://github.com/Masiha-mohammadpoor/note-app" className={styles.github}><FaGithub /></a>
             </header>
             <main className={`mt-5 pt-5 ${styles.main}`}>
                 <Container className="mt-3">
@@ -39,5 +39,6 @@ const Home = () => {
         </>
     );
 }
-// d-xs-flex d-md-block
+
+
 export default Home;

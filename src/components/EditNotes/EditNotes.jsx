@@ -115,7 +115,7 @@ const EditNotes = () => {
                         className={"w-75"}
                         placeholder='Title...' />
 
-                    <p className="w-75 d-flex justify-content-end">2/40</p>
+                    <p className="w-75 d-flex justify-content-end text-light">_</p>
 
                     <Form.Label className={styles.inputLabel}>Text :</Form.Label>
                     <Form.Control
