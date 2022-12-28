@@ -37,7 +37,7 @@ const CheckList = () => {
     useEffect(() => {
         const getData = async () => {
             try {  
-                const {data , statusText} = await axios.get("http://localhost:3001/tasks");
+                const {data , statusText} = await axios.get("https://my-json-server.typicode.com/Masiha-mohammadpoor/note-app-db/tasks");
                 setTasks(data);
                 setRequest(statusText);
             }catch(err){
@@ -55,8 +55,8 @@ const CheckList = () => {
             const postData = async () => {
                 try{
                     const newData = {task,completed : false , date : `${new Date().toLocaleDateString()}`};
-                    await axios.post("http://localhost:3001/tasks" , newData);
-                    const {data} = await axios.get("http://localhost:3001/tasks");
+                    await axios.post("https://my-json-server.typicode.com/Masiha-mohammadpoor/note-app-db/tasks" , newData);
+                    const {data} = await axios.get("https://my-json-server.typicode.com/Masiha-mohammadpoor/note-app-db/tasks");
                     setTasks(data);
                 }catch(err){
                     console.error(err);
@@ -70,8 +70,8 @@ const CheckList = () => {
     const completeHandler = (id , task) => {
         const editData = async () => {
             try {   
-                await axios.put(`http://localhost:3001/tasks/${id}` , {...task , completed:!task.completed});
-                const {data} = await axios.get("http://localhost:3001/tasks");
+                await axios.put(`https://my-json-server.typicode.com/Masiha-mohammadpoor/note-app-db/tasks/${id}` , {...task , completed:!task.completed});
+                const {data} = await axios.get("https://my-json-server.typicode.com/Masiha-mohammadpoor/note-app-db/tasks");
                 setTasks(data);
             }catch(err){
                 console.error(err);
@@ -83,7 +83,7 @@ const CheckList = () => {
     const deleteHandler = (id) => {
         const deleteData = async () => {
             try{
-                await axios.delete(`http://localhost:3001/tasks/${id}`);
+                await axios.delete(`https://my-json-server.typicode.com/Masiha-mohammadpoor/note-app-db/tasks/${id}`);
                 const filtered = tasks.filter(t => t.id !== id);
                 setTasks(filtered);    
             }catch(err){
